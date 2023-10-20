@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <img style="width: 80%" src="{% static 'images/logo.svg' %}" alt="">
+        <hr style="width: 80%; border: 0; border-top: 2px solid #5C5C5C; margin: 15%">
+        <img style="width: 75%" id="open-hover" src="{% static 'images/menu.svg' %}" alt="">
+    </nav>
+
+    <div class="hover-menu" id="hover">
+        <div class="hover-element">
+            <img class="big-logo" src="{% static 'images/logo.svg' %}" alt="">
+            <p style="float: left; height: 1em; margin-top: 1.4em; font-size: 22px;">Онлайн справочник по Devumid</p>
+            <p style="width: 10em; margin-bottom: .8em; font-size: 32px;">BFN.DEV</p>
+            <hr style="background-color: #5C5C5C">
+        </div>
+
+        <div class="hover-element" style="column-count: 3">
+            <div style="margin-left: 2em; width: 14em">
+                <p class="hover-unit">Персонаж —————— <img src="{% static 'images/player.svg' %}" alt=""></p>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a class="hover-link" href="#">Лист игрока</a></li>
+                    <li><a class="hover-link" href="#">Классы и навыки</a></li>
+                    <li><a class="hover-link" href="{% url 'handbook:races' %}">Расы и происхождения</a></li>
+                    <li><a class="hover-link" href="#">Боевые навыки</a></li>
+                    <li><a class="hover-link" href="#">Заклинания и ритуалы</a></li>
+                </ul>
+            </div>
+            <div style="margin-left: 2em; width: 14em">
+                <p class="hover-unit">Предметы —————— <img src="{% static 'images/helmet.svg' %}" alt=""></p>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a class="hover-link" href="#">Оружие и фокусировки</a></li>
+                    <li><a class="hover-link" href="#">Доспехи и одежда</a></li>
+                    <li><a class="hover-link" href="#">Прочее снаряжение</a></li>
+                    <li><a class="hover-link" href="#">Артефакты</a></li>
+                    <li><a class="hover-link" href="#">Еда и напитки</a></li>
+                </ul>
+            </div>
+            <div style="margin-left: 2em; width: 14em">
+                <p class="hover-unit">Мироустройство —— <img src="{% static 'images/map.svg' %}" alt=""></p>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a class="hover-link" href="#">Бестиарий</a></li>
+                    <li><a class="hover-link" href="#">География</a></li>
+                    <li><a class="hover-link" href="#">Политика стран и рас</a></li>
+                    <li><a class="hover-link" href="#">Религии</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <li class="dark-overlay" id="overlay"></li>
+
+    <div class="content">
+    {% block content %}{% endblock %}
+    </div>
+    <div class="bg-image">
+        <img src="{% static 'images/bg_image.png' %}" alt="">
+    </div>
+</body>
+
+<script type="text/javascript">
+    function open_hover() {
+        document.getElementById('hover').style.animation = "hover-menu .5s ease-out";
+        document.getElementById('hover').style.visibility = "visible";
+
+        setTimeout(function() {
+            let elements = document.getElementsByClassName('hover-element');
+            for (let i = 0; i < elements.length; i++)
+                elements[i].style.visibility = "visible";
+        }, 500);
+
+
+        document.getElementById('overlay').style.animation = "opacity-hover 1s ease";
+        document.getElementById('overlay').style.visibility = "visible";
+    }
+
+    function hide_hover() {
+        document.getElementById('hover').style.animation = "hide-hover-menu .3s ease-out";
+        document.getElementById('hover').style.visibility = "hidden";
+
+        let elements = document.getElementsByClassName('hover-element');
+            for (let i = 0; i < elements.length; i++)
+                elements[i].style.visibility = "hidden";
+
+        document.getElementById('overlay').style.animation = "hide-opacity-hover .65s ease";
+        document.getElementById('overlay').style.visibility = "hidden";
+    }
+
+
+    window.addEventListener('click', function(e){
+    if (!document.getElementById('hover').contains(e.target)){
+        hide_hover();
+    }
+
+    if (document.getElementById('open-hover').contains(e.target)){
+        open_hover()
+      }
+    });
+
+    $(document).keyup(function(e) {
+     if (e.key === "Escape") {
+        hide_hover();
+    }
+});
+</script>
+
+</html>
