@@ -4,15 +4,16 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="title">Расы и происхождения</h1>
+    <h1 class="section-title">Расы и происхождения</h1>
 
     {% if all_races %}
     <div class="mp-section">
     {% for race in all_races %}
-        <div class="section-elem">
+        <div class="section-elem race-elem">
             <a href="{% url 'handbook:race_page' race.name_eng %}">
                 <img src="{% static race.img_path %}" alt="">
                 <p>{{ race.name_rus }}</p>
+                <p class="subname">{{ race.name_eng }}</p>
             </a>
         </div>
     {% endfor %}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Balsamiq+Sans&display=swap');
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -19,7 +21,7 @@ body {
     background-color: #1E222B;
     color: #FFFFFF;
     list-style: none;
-  font-family: Balsamiq Sans, ui-rounded;
+    font-family: 'Balsamiq Sans', sans-serif;
 }
 
 @keyframes hover-menu {
@@ -79,7 +81,7 @@ body {
 }
 
 .dark-overlay {
-  position: absolute;
+  position: fixed;
   visibility: hidden;
   width: 100%; height: 100%;
   background: rgba(0, 0, 0, .75);
@@ -92,8 +94,8 @@ body {
 }
 
 .hover-menu {
+  position: fixed;
   visibility: hidden;
-  position: absolute;
   background-color: #1E222B;
   border-radius: 10px;
   border: 1px solid #5C5C5C;
@@ -106,9 +108,21 @@ body {
 }
 
 .hover-unit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hover-unit p{
   font-size: 18px;
   color: #909090;
   margin-bottom: .5em;
+}
+
+.text-line {
+  height: 2px;
+  width: 100%;
+  margin: 12% 3% 0;
+  background-color: #909090;
 }
 
 .hover-link {
@@ -121,6 +135,44 @@ body {
 .hover-link:hover {
   text-decoration: none;
   color: #7B5EEE;
+}
+
+.hover-header {
+  margin-top: -4%;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+.hover-header h1{
+  width: 10em;
+  margin-bottom: .8em;
+  font-size: 32px;
+}
+
+.hover-header h2{
+  float: left;
+  height: 1em;
+  margin-top: 1.4em;
+  font-size: 22px;
+}
+
+.hover-header hr{
+  background-color: #5C5C5C;
+}
+
+.hover-element {
+  column-count: 3;
+  padding-right: 5%;
+}
+
+.hover-element .hover-col{
+  margin-left: 2em;
+  width: 14em;
+}
+
+.hover-element .hover-col ul{
+  list-style: none;
+  padding: 0;
 }
 
 .big-logo {
@@ -148,6 +200,14 @@ body {
   font-family: Balsamiq Sans, ui-rounded;
 }
 
+.section-title {
+  text-align: left;
+  width: 100%;
+  padding-left: 1.5%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
 .mp-section {
   column-count: 3;
   width: 100%;
@@ -167,11 +227,22 @@ body {
   text-decoration: none;
   left: 4%;
   bottom: 25%;
-  font-size: 25px;
+  font-size: 32px;
 }
 
 .section-elem img{
   width: 100%;
+}
+
+.race-elem p{
+  top: 0;
+  left: 8%;
+}
+
+.race-elem .subname {
+  top: 18%;
+  color: #AAAAAA;
+  font-size: 25px;
 }
 
 .navbar {
@@ -185,16 +256,27 @@ body {
   border-right: 2px solid #5C5C5C;
 }
 
-.title {
-  color: #FFFFFF;
-  padding-left: 1.5%;
-  text-align: left;
+.navbar a{
+  width: 80%;
+}
+
+.navbar a img{
   width: 100%;
 }
 
+.navbar img{
+  width: 75%;
+}
+
+.navbar hr{
+  width: 80%;
+  border: 0;
+  border-top: 2px solid #5C5C5C;
+  margin: 15%;
+}
+
 .content {
-  margin: 1%;
-  margin-left: 5.5%;
+  margin: 1% 1% 1% 5.5%;
   width: 93%;
   display: -webkit-flex;
   display: flex;

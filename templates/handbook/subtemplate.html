@@ -13,23 +13,29 @@
 </head>
 <body>
     <nav class="navbar">
-        <img style="width: 80%" src="{% static 'images/logo.svg' %}" alt="">
-        <hr style="width: 80%; border: 0; border-top: 2px solid #5C5C5C; margin: 15%">
-        <img style="width: 75%" id="open-hover" src="{% static 'images/menu.svg' %}" alt="">
+        <a href="{% url 'handbook:index' %}">
+            <img src="{% static 'images/logo.svg' %}" alt="">
+        </a>
+        <hr>
+        <img id="open-hover" src="{% static 'images/menu.svg' %}" alt="">
     </nav>
 
     <div class="hover-menu" id="hover">
-        <div class="hover-element">
+        <div class="hover-header">
             <img class="big-logo" src="{% static 'images/logo.svg' %}" alt="">
-            <p style="float: left; height: 1em; margin-top: 1.4em; font-size: 22px;">Онлайн справочник по Devumid</p>
-            <p style="width: 10em; margin-bottom: .8em; font-size: 32px;">BFN.DEV</p>
-            <hr style="background-color: #5C5C5C">
+            <h2>Онлайн справочник по Devumid</h2>
+            <h1>BFN.DEV</h1>
+            <hr>
         </div>
 
-        <div class="hover-element" style="column-count: 3">
-            <div style="margin-left: 2em; width: 14em">
-                <p class="hover-unit">Персонаж —————— <img src="{% static 'images/player.svg' %}" alt=""></p>
-                <ul style="list-style: none; padding: 0;">
+        <div class="hover-element">
+            <div class="hover-col">
+                <div class="hover-unit">
+                    <p>Персонаж</p>
+                    <div class="text-line"></div>
+                    <img src="{% static 'images/player.svg' %}" alt="">
+                </div>
+                <ul>
                     <li><a class="hover-link" href="#">Лист игрока</a></li>
                     <li><a class="hover-link" href="#">Классы и навыки</a></li>
                     <li><a class="hover-link" href="{% url 'handbook:races' %}">Расы и происхождения</a></li>
@@ -37,9 +43,13 @@
                     <li><a class="hover-link" href="#">Заклинания и ритуалы</a></li>
                 </ul>
             </div>
-            <div style="margin-left: 2em; width: 14em">
-                <p class="hover-unit">Предметы —————— <img src="{% static 'images/helmet.svg' %}" alt=""></p>
-                <ul style="list-style: none; padding: 0;">
+            <div class="hover-col">
+                <div class="hover-unit">
+                    <p>Предметы</p>
+                    <div class="text-line"></div>
+                    <img src="{% static 'images/helmet.svg' %}" alt="">
+                </div>
+                <ul>
                     <li><a class="hover-link" href="#">Оружие и фокусировки</a></li>
                     <li><a class="hover-link" href="#">Доспехи и одежда</a></li>
                     <li><a class="hover-link" href="#">Прочее снаряжение</a></li>
@@ -47,9 +57,13 @@
                     <li><a class="hover-link" href="#">Еда и напитки</a></li>
                 </ul>
             </div>
-            <div style="margin-left: 2em; width: 14em">
-                <p class="hover-unit">Мироустройство —— <img src="{% static 'images/map.svg' %}" alt=""></p>
-                <ul style="list-style: none; padding: 0;">
+            <div class="hover-col">
+                <div class="hover-unit">
+                    <p>Мироустройство</p>
+                    <div class="text-line"></div>
+                    <img src="{% static 'images/map.svg' %}" alt="">
+                </div>
+                <ul>
                     <li><a class="hover-link" href="#">Бестиарий</a></li>
                     <li><a class="hover-link" href="#">География</a></li>
                     <li><a class="hover-link" href="#">Политика стран и рас</a></li>
@@ -70,6 +84,9 @@
 </body>
 
 <script type="text/javascript">
+    document.getElementById('hover').style.visibility = "hidden";
+    document.getElementById('hover').style.animation = "hide-hover-menu 0s ease-out";
+
     function open_hover() {
         document.getElementById('hover').style.animation = "hover-menu .5s ease-out";
         document.getElementById('hover').style.visibility = "visible";
