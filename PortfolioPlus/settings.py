@@ -1,4 +1,5 @@
 from pathlib import Path
+import djongo
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,10 +68,30 @@ WSGI_APPLICATION = 'PortfolioPlus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+# v7FShDHPHY6AQ0Pi
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'devumid',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://devumid.hqon5hx.mongodb.net/',
+            'port': 27017,
+            'username': 'admin',
+            'password': 'v7FShDHPHY6AQ0Pi',
+            'authSource': 'devumid',
+            'authMechanism': 'SCRAM-SHA-1'
+        },
+        'LOGGING': {
+            'version': 1,
+            'loggers': {
+                'djongo': {
+                    'level': 'DEBUG',
+                    'propagate': False,
+                }
+            },
+         },
     }
 }
 
