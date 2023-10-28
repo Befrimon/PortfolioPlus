@@ -1,4 +1,21 @@
 from djongo import models
+from django import forms
+
+
+class Spec(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class Meta:
+        abstract = True
+
+
+class SpecForm(forms.ModelForm):
+    class Meta:
+        model = Spec
+        fields = (
+            "title", "description"
+        )
 
 
 class GameRace(models.Model):
@@ -9,10 +26,19 @@ class GameRace(models.Model):
     description = models.TextField()
     img_path = models.CharField(max_length=255)
 
-    countries = models.JSONField()
-    lands = models.JSONField()
-    langs = models.JSONField()
-    religions = models.JSONField()
+    info = models.ArrayField(
+        model_container=Spec,
+        model_form_class=SpecForm
+    )
+
+    spec = models.ArrayField(
+        model_container=Spec,
+        model_form_class=SpecForm
+    )
+    create = models.ArrayField(
+        model_container=Spec,
+        model_form_class=SpecForm
+    )
 
     def __str__(self):
         return self.name_eng
