@@ -1,7 +1,7 @@
 {% extends 'handbook/subtemplate.html' %}
 
 {% block title %}Races | Devumid Handbook{% endblock %}
-{% load static %}
+
 
 {% block content %}
     <h1 class="section-title">Расы и происхождения</h1>
@@ -10,8 +10,9 @@
     <div class="mp-section">
     {% for race in all_races %}
         <div class="section-elem race-elem">
-            <a href="{% url 'handbook:race_page' race.name_eng %}">
-                <img src="{% static race.img_path %}" alt="">
+            <a href="{{ url('handbook:race_page', args=[race.name_eng]) }}">
+                {% set path = img_path[race.name_eng] %}
+                <img src="{{ static(path) }}" alt="">
                 <p>{{ race.name_rus }}</p>
                 <p class="subname">{{ race.name_eng }}</p>
             </a>

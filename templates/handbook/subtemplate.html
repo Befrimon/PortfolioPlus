@@ -4,12 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles/handbook/body-style.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/handbook/hover-menu.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/handbook/style.css' %}">
 
-    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.svg' %}">
+    <link rel="stylesheet" href="{{ static('styles/handbook/body-style.css') }}">
+    <link rel="stylesheet" href="{{ static('styles/handbook/hover-menu.css') }}">
+    <link rel="stylesheet" href="{{ static('styles/handbook/style.css') }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ static('images/logo.svg') }}">
 
     <title>{% block title %}{% endblock %}</title>
 
@@ -18,16 +18,16 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="{% url 'handbook:index' %}">
-            <img src="{% static 'images/logo.svg' %}" alt="">
+        <a href="{{ url('handbook:index') }}">
+            <img src="{{ static('images/logo.svg') }}" alt="">
         </a>
         <hr>
-        <img id="open-hover" src="{% static 'images/menu.svg' %}" alt="">
+        <img id="open-hover" src="{{ static('images/menu.svg') }}" alt="">
     </nav>
 
     <div class="hover-menu" id="hover">
         <div class="hover-header">
-            <img class="big-logo" src="{% static 'images/logo.svg' %}" alt="">
+            <img class="big-logo" src="{{ static('images/logo.svg') }}" alt="">
             <h2>Онлайн справочник по Devumid</h2>
             <h1>BFN.DEV</h1>
             <hr>
@@ -38,12 +38,12 @@
                 <div class="hover-unit">
                     <p>Персонаж</p>
                     <div class="text-line"></div>
-                    <img src="{% static 'images/player.svg' %}" alt="">
+                    <img src="{{ static('images/player.svg') }}" alt="">
                 </div>
                 <ul>
                     <li><a class="hover-link" href="#">Лист игрока</a></li>
                     <li><a class="hover-link" href="#">Классы и навыки</a></li>
-                    <li><a class="hover-link" href="{% url 'handbook:races' %}">Расы и происхождения</a></li>
+                    <li><a class="hover-link" href="{{ url('handbook:races') }}">Расы и происхождения</a></li>
                     <li><a class="hover-link" href="#">Боевые навыки</a></li>
                     <li><a class="hover-link" href="#">Заклинания и ритуалы</a></li>
                 </ul>
@@ -52,7 +52,7 @@
                 <div class="hover-unit">
                     <p>Предметы</p>
                     <div class="text-line"></div>
-                    <img src="{% static 'images/helmet.svg' %}" alt="">
+                    <img src="{{ static('images/helmet.svg') }}" alt="">
                 </div>
                 <ul>
                     <li><a class="hover-link" href="#">Оружие и фокусировки</a></li>
@@ -66,7 +66,7 @@
                 <div class="hover-unit">
                     <p>Мироустройство</p>
                     <div class="text-line"></div>
-                    <img src="{% static 'images/map.svg' %}" alt="">
+                    <img src="{{ static('images/map.svg') }}" alt="">
                 </div>
                 <ul>
                     <li><a class="hover-link" href="#">Бестиарий</a></li>
@@ -86,7 +86,7 @@
 
     {% if not base_bg %}
     <div class="bg-image">
-        <img src="{% static 'images/bg_image.png' %}" alt="">
+        <img src="{{ static('images/bg_images/base.png') }}" alt="">
     </div>
     {% endif %}
 </body>

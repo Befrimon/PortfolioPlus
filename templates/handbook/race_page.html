@@ -1,7 +1,6 @@
 {% extends 'handbook/subtemplate.html' %}
 
 {% block title %}{{ name_eng }} | Devumid Handbook{% endblock %}
-{% load static %}
 
 {% block content %}
 <div class="object-container">
@@ -25,8 +24,8 @@
 
     </div>
     <div class="object-img">
-        <img class="image1" src="{% static 'images/bg_images/human_1.png' %}" alt="">
-        <img class="image2" src="{% static 'images/bg_images/human_2.png' %}" alt="">
+        <img class="image1" src="{{ static('images/bg_images/' ~ name_eng ~ '1.png') }}" alt="">
+        <img class="image2" src="{{ static('images/bg_images/' ~ name_eng ~ '2.png') }}" alt="">
     </div>
 </div>
 {% endblock %}
