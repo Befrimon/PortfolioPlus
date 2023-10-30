@@ -1,0 +1,16 @@
+{% extends 'handbook/subtemplate.html' %}
+
+{% block title %}Heroes | Devumid Handbook{% endblock %}
+
+{% block content %}
+    <h1 class="section-title">Мои персонажи</h1>
+    {% if heroes %}
+    {% for hero in heroes %}
+        <div class="section-elem herobox">
+            
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>У вас пока что нет персонажей</p>
+    {% endif %}
+{% endblock %}

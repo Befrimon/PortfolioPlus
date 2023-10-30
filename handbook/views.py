@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import GameRace
+from .models import GameRace, Heroes
 
 
 def index(request):
@@ -29,3 +29,11 @@ def race_page(request, name_eng):
         "base_bg": True
     }
     return render(request, "handbook/race_page.html", context)
+
+
+def heroes(request):
+    heroes = Heroes.objects.all()
+    context = {
+        "heroes": heroes
+    }
+    return render(request, "handbook/heroes.html", context)

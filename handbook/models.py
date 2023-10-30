@@ -42,3 +42,17 @@ class GameRace(models.Model):
 
     def __str__(self):
         return self.name_eng
+
+
+class Heroes(models.Model):
+    _id = models.ObjectIdField()
+
+    name = models.CharField(max_length=255)
+    hits = models.IntegerField()
+    max_hits = models.IntegerField()
+    energy = models.IntegerField()
+    max_energy = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
