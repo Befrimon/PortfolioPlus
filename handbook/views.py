@@ -1,12 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import GameRace, Heroes
+import pickle
+import uuid
 
 
-def index(request):
+def index(request) -> HttpResponse:
     return render(request, "handbook/index.html", {})
 
 
-def races(request):
+def races(request) -> HttpResponse:
     all_races = GameRace.objects.all()
     context = {
         "all_races": all_races,
@@ -15,7 +17,7 @@ def races(request):
     return render(request, "handbook/races.html", context)
 
 
-def race_page(request, name_eng):
+def race_page(request, name_eng: str) -> HttpResponse:
     race = GameRace.objects.get(name_eng=name_eng)
     context = {
         "name_rus": race.name_rus,
@@ -31,9 +33,36 @@ def race_page(request, name_eng):
     return render(request, "handbook/race_page.html", context)
 
 
-def heroes(request):
-    heroes = Heroes.objects.all()
+def heroes(request) -> HttpResponse:
+    hero_list = request.session.keys()
+
     context = {
-        "heroes": heroes
+        "heroes": [pickle.loads(bytes.fromhex(request.session.get(hid))) for hid in hero_list]
     }
     return render(request, "handbook/heroes.html", context)
+
+
+def new_hero(request) -> HttpResponse:
+    hero_id = str(uuid.uuid4())
+    context = {
+        "id": hero_id,
+        "name": "New hero",
+        "hp": [10, 10],
+        "energy": [2, 2]
+    }
+
+    request.session[hero_id] = pickle.dumps(context).hex()
+
+    return render(request, "handbook/hero.html", context)
+
+
+def hero(request, hero_id: str) -> HttpResponse:
+    hero_data = pickle.loads(bytes.fromhex(request.session.get(hero_id)))
+
+    context = {
+        "name": hero_data["name"],
+        "hp": hero_data["hp"],
+        "energy": hero_data["energy"]
+    }
+
+    return render(request, "handbook/hero.html", context)

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ static('styles/handbook/body-style.css') }}">
     <link rel="stylesheet" href="{{ static('styles/handbook/hover-menu.css') }}">
     <link rel="stylesheet" href="{{ static('styles/handbook/style.css') }}">
+    <link rel="stylesheet" href="{{ static('styles/handbook/hero-list.css') }}">
 
     <link rel="icon" type="image/x-icon" href="{{ static('images/logo.svg') }}">
 
@@ -41,7 +42,7 @@
                     <img src="{{ static('images/player.svg') }}" alt="">
                 </div>
                 <ul>
-                    <li><a class="hover-link" href="#">Лист игрока</a></li>
+                    <li><a class="hover-link" href="{{ url('handbook:heroes') }}">Лист игрока</a></li>
                     <li><a class="hover-link" href="#">Классы и навыки</a></li>
                     <li><a class="hover-link" href="{{ url('handbook:races') }}">Расы и происхождения</a></li>
                     <li><a class="hover-link" href="#">Боевые навыки</a></li>

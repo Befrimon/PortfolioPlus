@@ -9,8 +9,10 @@
     <h2 class="section-title">Персонаж</h2>
     <div class="mp-section">
         <div class="section-elem">
-            <img src="{{ static('images/home_sections/player_list.png') }}" alt="">
-            <p>Лист игрока</p>
+            <a href="{{ url('handbook:heroes') }}">
+                <img src="{{ static('images/home_sections/player_list.png') }}" alt="">
+                <p>Лист игрока</p>
+            </a>
         </div>
         <div class="section-elem">
             <a href="{{ url('handbook:races') }}">

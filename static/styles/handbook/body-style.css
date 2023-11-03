@@ -23,6 +23,9 @@ body {
     list-style: none;
     font-family: 'Balsamiq Sans', sans-serif;
 }
+body p{
+	color: #E5E5E5;
+}
 
 
 .navbar {

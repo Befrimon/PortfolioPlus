@@ -96,13 +96,16 @@
   column-count: 3;
   padding-right: 5%;
 }
-.hover-element .hover-col{
+.hover-col{
   margin-left: 2em;
   width: 14em;
 }
-.hover-element .hover-col ul{
+.hover-col ul{
   list-style: none;
   padding: 0;
+}
+.hover-col ul li{
+	padding-bottom: 2%;
 }
 
 .hover-unit {
