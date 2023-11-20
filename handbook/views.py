@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import GameRace, Heroes
+from .models import GameRace
 import pickle
 import uuid
 
@@ -24,9 +24,19 @@ def race_page(request, name_eng: str) -> HttpResponse:
         "name_eng": race.name_eng.replace(" ", ""),
         "description": race.description,
 
-        "info": race.info,
-        "spec": race.spec,
+        "info": {
+            "title": {
+                "countries": "Страны",
+                "lands": "Территории",
+                "languages": "Языки",
+                "religions": "Религия"
+            },
+            "context": race.info
+        },
         "create": race.create,
+        "skills": race.skills,
+        "spec": race.spec,
+        "acting": race.acting,
 
         "base_bg": True
     }

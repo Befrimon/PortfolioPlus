@@ -8,17 +8,20 @@
         <h1 class="section-title">{{ name_rus }}</h1>
         <p class="p-desc">{{ description }}</p>
 
-        {% for item in info %}
-            <p><b>{{ item.title }}</b>. {{ item.description }}</p>
+        {% for item in info.title.keys() %}
+            <p><b>{{ info.title[item] }}</b>. {{ info.context[item] }}</p>
         {% endfor %}
 
         <h1 class="section-title">Особенности</h1>
+				<p><b>Навыки</b>. {{ name_rus }} получает {{ skills.value }} очка для развития ветки "{{ skills.skill }}"</p>
         {% for item in spec %}
             <p><b>{{ item.title }}</b>. {{ item.description }}</p>
         {% endfor %}
 
         <h1 class="section-title">Отыгрыш и создание</h1>
-        {% for item in create %}
+				<p><b>Возраст и рост</b>. {{ create.age }} {{ create.height }}</p>
+				<p><b>Скорость</b>. Ваша скорость равна {{ create.speed }} ячеек</p>
+        {% for item in acting %}
             <p><b>{{ item.title }}</b>. {{ item.description }}</p>
         {% endfor %}
 

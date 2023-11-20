@@ -47,6 +47,9 @@
   width: 100%;
 }
 
+.race-elem {
+	margin-bottom: 4%;
+}
 .race-elem p{
   top: 0;
   left: 8%;

@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'PortfolioPlus.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-# v7FShDHPHY6AQ0Pi
+# mongodb+srv://admin:I0rERvqSFP4g8d8A@devumid.hqon5hx.mongodb.net/
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -87,7 +87,7 @@ DATABASES = {
             'host': 'mongodb+srv://devumid.hqon5hx.mongodb.net/',
             'port': 27017,
             'username': 'admin',
-            'password': 'v7FShDHPHY6AQ0Pi',
+            'password': 'I0rERvqSFP4g8d8A',
             'authSource': 'devumid',
             'authMechanism': 'SCRAM-SHA-1'
         },
