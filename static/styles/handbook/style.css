@@ -23,6 +23,13 @@
   margin-bottom: 1%;
 }
 
+.mp-section-1{
+  column-count: 1;
+  width: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+
+}
 .mp-section {
   column-count: 3;
   width: 100%;
@@ -58,6 +65,10 @@
   top: 18%;
   color: #AAAAAA;
   font-size: 25px;
+}
+
+.weap-elem {
+  margin-bottom: 4%;
 }
 
 .object-container {

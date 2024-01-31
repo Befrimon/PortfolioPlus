@@ -1,0 +1,20 @@
+{% extends 'handbook/subtemplate.html' %}
+
+{% block title %}Weapons | Devumid Handbook{% endblock %}
+
+
+{% block content %}
+    <h1 class="section-title">Оружие и фокусировки</h1>
+
+	{% if all_weapons %}
+    	<div class="mp-section-1">
+   	 	{% for weap in all_weapons %}
+			<div class="section-elem race-elem">
+				<p>{{ weap.name_rus }}</p>
+			</div>
+		{% endfor %}
+    	</div>
+    {% else %}
+        <p>Database error, no weapon found</p>
+	{% endif %}
+{% endblock %}

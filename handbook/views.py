@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import GameRace
+from .models import GameRace, GameWeapon
 import pickle
 import uuid
 
@@ -76,3 +76,21 @@ def hero(request, hero_id: str) -> HttpResponse:
     }
 
     return render(request, "handbook/hero.html", context)
+
+
+def classes(request) -> HttpResponse:
+    #all_classes = GameSkill.objects.all()
+    context = {
+        "all_classes": None #all_classes,
+        # "img_path": {race.name_eng: f"/images/races/{race.name_eng}.png".replace(" ", "") for race in all_races}
+    }
+    return render(request, "handbook/classes.html", context)
+
+
+def weapons(request) -> HttpResponse:
+    all_weapons= GameWeapon.objects.all()
+    context = {
+        "all_weapons": all_weapons,
+    }
+    return render(request, "handbook/weapons.html", context)
+
