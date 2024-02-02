@@ -1,15 +1,21 @@
 .search-input {
+	width: 95%;
+	height: 5%;
+	margin-bottom: 3%;
+}
+
+.search-input input{
   position: relative;
-  text-align: center;
+  text-align: left;
   border: none;
   width: 100%;
-  height: 2em;
+  height: 2.5em;
   border-radius: 8px;
   background: #2A2E3E;
   color: #FFFFFF;
   font-size: 16px;
 }
-.search-input::placeholder {
+.search-input input::placeholder {
   color: #8C8E9E;
   font-size: 16px;
   font-family: Balsamiq Sans, ui-rounded;
@@ -23,13 +29,6 @@
   margin-bottom: 1%;
 }
 
-.mp-section-1{
-  column-count: 1;
-  width: 100%;
-  padding-left: 1%;
-  padding-right: 1%;
-
-}
 .mp-section {
   column-count: 3;
   width: 100%;
@@ -116,4 +115,9 @@
 
     width: 75%;
     right: 0; bottom: 0;
-  }
+}
+
+.weap-table {
+	width: 95%;
+	font-size: 32px;
+}

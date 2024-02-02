@@ -6,14 +6,25 @@
 {% block content %}
     <h1 class="section-title">Оружие и фокусировки</h1>
 
+	<div class="search-input"><label>
+			<input type="text" placeholder="Поиск по оружию">
+    </label></div>
+
 	{% if all_weapons %}
-    	<div class="mp-section-1">
-   	 	{% for weap in all_weapons %}
-			<div class="section-elem race-elem">
-				<p>{{ weap.name_rus }}</p>
-			</div>
+	<table class="weap-table">
+		<tr>
+			<td>Название</td><td>Урон</td><td>Тип урона</td><td>Вес</td><td>Цена</td>
+		</tr>
+		{% for weap in all_weapons %}
+		<tr>
+			<td>{{ weap.name_rus }}</td>
+			<td>{{ weap.damage.dice_count }}d{{ weap.damage.dice }}</td>
+			<td>{{ weap.damage.ttype }}</td>
+			<td>{{ weap.weight }}фунтов</td>
+			<td>{{ weap.costs.gold }}з {{ weap.costs.silver }}с {{ weap.costs.copper }}м</td>
+		</tr>
 		{% endfor %}
-    	</div>
+	</table>
     {% else %}
         <p>Database error, no weapon found</p>
 	{% endif %}

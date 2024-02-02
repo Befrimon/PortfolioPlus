@@ -55,6 +55,7 @@ class CostObj(models.Model):
 
 
 class DamageObj(models.Model):
+    dice_count = models.IntegerField()
     dice = models.IntegerField()
     ttype = models.TextField()
 
@@ -91,8 +92,12 @@ class GameWeapon(models.Model):
     name_rus = models.TextField()
     name_eng = models.TextField()
 
-    costs = CostObj()
-    damage = DamageObj()
+    costs = models.EmbeddedField(
+        model_container=CostObj
+    )
+    damage = models.EmbeddedField(
+        model_container=DamageObj
+    )
     weight = models.IntegerField()
 
     group_type = models.TextField()
