@@ -1,8 +1,9 @@
 .search-input {
 	width: 95%;
 	height: 5%;
-	margin-bottom: 3%;
-}
+	margin: 1%;
+	/* margin-bottom: 3%;
+*/}
 
 .search-input input{
   position: relative;
@@ -13,11 +14,11 @@
   border-radius: 8px;
   background: #2A2E3E;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 24px;
 }
 .search-input input::placeholder {
   color: #8C8E9E;
-  font-size: 16px;
+  font-size: 24px;
   font-family: Balsamiq Sans, ui-rounded;
 }
 
@@ -120,4 +121,9 @@
 .weap-table {
 	width: 95%;
 	font-size: 32px;
+	margin-top: 5%;
+}
+.weap-table th {
+	text-align: left;
+	line-height: 60px;
 }

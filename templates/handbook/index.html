@@ -3,8 +3,8 @@
 {% block title %}Devumid Handbook{% endblock %}
 
 {% block content %}
-    <div style="width: 50%; height: 4%">
-    <label><input class="search-input" type="text" placeholder="Поиск по архиву Devumid">
+   	<div class="search-input">
+    <label><input type="text" placeholder="Поиск по архиву Devumid">
     </label></div>
     <h2 class="section-title">Персонаж</h2>
     <div class="mp-section">
@@ -32,8 +32,10 @@
     <h2 class="section-title">Предметы</h2>
     <div class="mp-section">
         <div class="section-elem">
-            <img src="{{ static('images/home_sections/weapon.png') }}" alt="">
-            <p>Оружие и фокусировки</p>
+			<a href="{{ url('handbook:weapons') }}">
+            	<img src="{{ static('images/home_sections/weapon.png') }}" alt="">
+            	<p>Оружие и фокусировки</p>
+			</a>
         </div>
         <div class="section-elem">
             <img src="{{ static('images/home_sections/armor.png') }}" alt="">
