@@ -127,3 +127,13 @@
 	text-align: left;
 	line-height: 60px;
 }
+table.dataTable thead>tr>th.sorting:after,
+table.dataTable thead>tr>th.sorting:before {
+	margin: .5vh;
+	width: 1vw;
+	height: auto;
+}
+.dataTables_wrapper{
+	width: 95%;
+}
+.dataTables_filter, .dataTables_length{ visibility: hidden;}

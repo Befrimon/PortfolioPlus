@@ -7,25 +7,54 @@
     <h1 class="section-title">Оружие и фокусировки</h1>
 
 	<div class="search-input"><label>
-			<input type="text" placeholder="Поиск по оружию">
-    </label></div>
+		<input id="search" type="text" placeholder="Поиск по оружию">
+	</label></div>
 
 	{% if all_weapons %}
-	<table class="weap-table">
+	<table id="weap-table" class="weap-table">
+		<thead>
 		<tr>
-			<th>Название</th><th>Урон</th><th>Тип урона</th><th>Вес</th><th>Цена</th>
+			<th>Название</th><th>Урон</th><th>Тип урона</th><th>Дальность</th><th>Вес</th><th>Двуручное</th><th>Цена</th>
 		</tr>
+		</thead>
+		<tbody>
 		{% for weap in all_weapons %}
 		<tr>
 			<td>{{ weap.name_rus }}</td>
 			<td>{{ weap.damage.dice_count }}d{{ weap.damage.dice }}</td>
 			<td>{{ weap.damage.ttype }}</td>
+			<td>
+			{% if weap.ranged.isr %}
+				{{ weap.ranged.distance[0] }}/{{ weap.ranged.distance[1] }}
+			{% else %}
+				--
+			{% endif %}
+			</td>
 			<td>{{ weap.weight }} фнт</td>
+			<td>{% if weap.twohanded %}Да{% else %}Нет{% endif %}</td>
 			<td>{{ weap.costs.gold }}з {{ weap.costs.silver }}с {{ weap.costs.copper }}м</td>
 		</tr>
 		{% endfor %}
+		</tbody>
 	</table>
     {% else %}
         <p>Database error, no weapon found</p>
 	{% endif %}
+{% endblock %}
+
+{% block script %}
+let table = new DataTable('#weap-table',
+{
+  "language": {
+    "paginate": {
+      "previous": "Предыдущая",
+			"next": "Следующая"
+    },
+		"info": "Страницы _START_-_END_ (всего _TOTAL_)"
+  }
+});
+
+$('#search').keyup(function() {
+	table.search($(this).val()).draw();
+});
 {% endblock %}

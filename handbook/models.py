@@ -1,5 +1,6 @@
 from djongo import models
 from django import forms
+from django.core.validators import int_list_validator
 
 
 class TDObject(models.Model):
@@ -63,6 +64,14 @@ class DamageObj(models.Model):
         abstract = True
 
 
+class RangedObj(models.Model):
+    isr = models.BooleanField()
+    distance = models.Field()
+
+    class Meta:
+        abstract = True
+
+
 class GameRace(models.Model):
     _id = models.ObjectIdField()
 
@@ -98,7 +107,11 @@ class GameWeapon(models.Model):
     damage = models.EmbeddedField(
         model_container=DamageObj
     )
-    weight = models.IntegerField()
+    ranged = models.EmbeddedField(
+        model_container=RangedObj
+    )
 
+    weight = models.IntegerField()
     group_type = models.TextField()
+    twohanded = models.BooleanField()
 
