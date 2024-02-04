@@ -8,7 +8,7 @@ CONFIG = configparser.RawConfigParser()
 CONFIG.read(BASE_DIR / 'config.ini')
 
 SECRET_KEY = CONFIG['DEFAULT']['DjangoKey']
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
