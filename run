@@ -4,9 +4,9 @@ PYRUN=.venv/bin/python3
 
 rm handbook/migrations/0001_initial.py
 
-temp='eval "$PYRUN manage.py migrate --fake" 2>/dev/null'
+eval "$PYRUN manage.py migrate --fake" 2>/dev/null
 eval "$PYRUN manage.py makemigrations"
 eval "$PYRUN manage.py migrate"
 
-eval "$PYRUN manage.py runserver 8080"
+eval "$PYRUN manage.py runserver 127.0.0.1:7289"
 
