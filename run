@@ -8,5 +8,5 @@ eval "$PYRUN manage.py migrate --fake" 2>/dev/null
 eval "$PYRUN manage.py makemigrations"
 eval "$PYRUN manage.py migrate"
 
-eval "$PYRUN manage.py runserver 127.0.0.1:7289"
+eval "$PYRUN manage.py runserver 127.0.0.1:7289 --insecure"
 
