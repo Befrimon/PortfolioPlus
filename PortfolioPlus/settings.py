@@ -1,22 +1,28 @@
 from pathlib import Path
-import configparser
 import djongo
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CONFIG = configparser.RawConfigParser()
-CONFIG.read(BASE_DIR / 'config.ini')
 
-SECRET_KEY = CONFIG['DEFAULT']['DjangoKey']
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-$-_%9n1q4io4v@bhs9_oajec!alc9+qjp*_v^737ed$n(2*78_'
+
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "befrimon.oxfff.ru",
-    "oxfff.ru",
-    "bfn-dev.ru"
+    "oxfff.ru"
 ]
+
+
+# Application definition
 
 INSTALLED_APPS = [
     "handbook.apps.HandbookConfig",
@@ -66,17 +72,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PortfolioPlus.wsgi.application'
 
+
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+
+# mongodb+srv://admin:I0rERvqSFP4g8d8A@devumid.hqon5hx.mongodb.net/
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'devumid',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': CONFIG['DATABASE']['host'],
-            'port': int(CONFIG['DATABASE']['port']),
-            'username': CONFIG['DATABASE']['uname'],
-            'password': CONFIG['DATABASE']['passwd'],
-            'authSource': CONFIG['DATABASE']['dbname'],
+            'host': 'mongodb+srv://devumid.hqon5hx.mongodb.net/',
+            'port': 27017,
+            'username': 'admin',
+            'password': 'I0rERvqSFP4g8d8A',
+            'authSource': 'devumid',
             'authMechanism': 'SCRAM-SHA-1'
         },
         'LOGGING': {
@@ -95,20 +107,24 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
-#AUTH_PASSWORD_VALIDATORS = [
-#    {
-#        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-#    },
-#    {
-#        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#    },
-#    {
-#        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#    },
-#    {
-#        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-#    },
-#]
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -116,11 +132,18 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
 STATIC_URL = 'static/'
-STATIC_ROOT = ''
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / "static",
 ]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

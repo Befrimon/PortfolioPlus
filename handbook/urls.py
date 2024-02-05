@@ -18,5 +18,5 @@ urlpatterns = [
     path("heroes/<str:hero_id>/", views.hero, name="hero"),
 
     path("weapons/", views.weapons, name="weapons"),
-    #path("armor/", views.armor, name="armor"),
+    path("armor/", views.armor, name="armor"),
 ]

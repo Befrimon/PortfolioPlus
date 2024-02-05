@@ -25,7 +25,7 @@
 .section-title {
   text-align: left;
   width: 100%;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1%;
 }
@@ -48,7 +48,7 @@
   text-decoration: none;
   left: 4%;
   bottom: 25%;
-  font-size: 32px;
+  font-size: 2rem;
 }
 .section-elem img{
   width: 100%;

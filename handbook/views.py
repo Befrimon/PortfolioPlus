@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import GameRace, GameWeapon
+from .models import GameRace, GameWeapon, GameArmor
 import pickle
 import uuid
 
@@ -93,4 +93,12 @@ def weapons(request) -> HttpResponse:
         "all_weapons": all_weapons,
     }
     return render(request, "handbook/weapons.html", context)
+
+
+def armor(request) -> HttpResponse:
+    all_armor = GameArmor.objects.all()
+    context = {
+        "all_armor": all_armor
+    }
+    return render(request, "handbook/armor.html", context)
 

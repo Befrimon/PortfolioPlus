@@ -97,9 +97,7 @@ class GameRace(models.Model):
 
 class GameWeapon(models.Model):
     _id = models.ObjectIdField()
-
     name_rus = models.TextField()
-    name_eng = models.TextField()
 
     costs = models.EmbeddedField(
         model_container=CostObj
@@ -114,4 +112,17 @@ class GameWeapon(models.Model):
     weight = models.IntegerField()
     group_type = models.TextField()
     twohanded = models.BooleanField()
+
+
+class GameArmor(models.Model):
+    _id = models.ObjectIdField()
+    name_rus = models.TextField()
+
+    ac = models.IntegerField()
+    material = models.TextField()
+    weight = models.IntegerField()
+
+    costs = models.EmbeddedField(
+        model_container=CostObj
+    )
 
