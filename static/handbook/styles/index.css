@@ -27,15 +27,16 @@
 } 
 .context > .section {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 2%;
+	grid-template-columns: repeat(3, 29vw);
+	column-gap: 2vw;
 
 	margin: 0 2vw;
 	width: 91vw;
 }
 .context > .section .elem a {
 	display: block;
-	height: 20vh;
+
+	height: calc(29vw * (11 / 34)); width: 29vw;
 
 	font-size: 1.7vw;
 	text-decoration: none;
@@ -44,7 +45,7 @@
 .context > .section .elem p {
 	position: relative;
 
-	top: -75%;
+	top: -7.5vw;
 	left: 5%;
 }
 .context > .section .elem a, .section .elem img {
