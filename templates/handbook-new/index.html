@@ -1,4 +1,4 @@
-{% extends 'handbook/subtemp-2.html' %}
+{% extends 'handbook-new/subtemp.html' %}
 
 {% set sections = {
 	'Персонаж': [['Лист игрока', 'heroes'], ['Расы и происхождения', 'races'], ['Классы и навыки', 'classes']],
@@ -6,10 +6,7 @@
 	'Мироустройство': [['Бестиарий', 'monsters'], ['Религии', 'religions'], ['География', 'geography']]
 }
 %}
-
-{% block css %}
-	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/index.css') }}"
-{% endblock %}
+{% set avivable = ['races'] %}
 
 {% block context %}
 <input type="search" placeholder="Поиск по архиву Devumid">
@@ -18,7 +15,7 @@
 	<h1>{{ sect }}</h1>
 	<div class="section">
 	{% for elem in sections[sect] %}
-		<div class="elem"><a href="#">
+		<div class="elem"><a href="{% if elem[1] in avivable %}{{ url('handbook:'+elem[1]+'-b') }}{% else %}#{% endif %}">
 				<img src="{{ static('handbook/images/sections/'+elem[1]+'.png') }}" alt="{{ elem[1] }}">
 			<p>{{ elem[0] }}</p>
 		</a></div>

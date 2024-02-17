@@ -6,6 +6,8 @@ app_name = "handbook"
 urlpatterns = [
     ### New path
     path("beta/", views.index2, name="index-b"),
+    path("beta/races/", views.races2, name="races-b"),
+    path("beta/races/<str:name_eng>/", views.race_page2, name="race_page-b"),
 
     ### Old path
     path("", views.index, name="index"),

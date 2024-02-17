@@ -7,11 +7,37 @@ import uuid
 ### New views
 def index2(request) -> HttpResponse:
     variables = {
+        "name": "index",
         "title": "Home",
         "show_bg": True
     }
 
-    return render(request, "handbook/index-2.html", variables)
+    return render(request, "handbook-new/index.html", variables)
+
+
+def races2(request) -> HttpResponse:
+    all_races = GameRace.objects.all()
+    variables = {
+        "name": "races",
+        "title": "Races",
+        "header": "Расы и происхождения",
+        "show_bg": True,
+        "all_elements": all_races
+    }
+
+    return render(request, "handbook-new/races.html", variables)
+
+
+def race_page2(request, name_eng: str) -> HttpResponse:
+    cur_race = GameRace.objects.get(name_eng=name_eng)
+    variables = {
+        "name": "race_page",
+        "title": name_eng,
+        "show_bg": False,
+        "info": cur_race
+    }
+
+    return render(request, "handbook-new/race-page.html", variables)
 
 
 ### Old views

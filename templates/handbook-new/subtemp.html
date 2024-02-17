@@ -7,8 +7,8 @@
 	<!-- Set css files -->
 	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/navigation.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/'+name+'.css') }}">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rubik">
-	{% block css %}{% endblock %}
 
 	<!-- Set icon file -->
 	<link rel="icon" type="image/x-icon" href="{{ static('handbook/images/logo.svg') }}">
@@ -17,7 +17,6 @@
 	<title>{{ title }} | Devumid Handbook</title>
 </head>
 
-<!-- Variable for navigation generate -->
 {% set menu = {
 	'Персонаж': {
 		'eng': 'player',

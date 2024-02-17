@@ -1,0 +1,16 @@
+{% extends 'handbook-new/subtemp.html' %}
+
+{% block context %}
+	<h1>{{ header }}</h1>
+	<div class="table-grid">
+		{% for elem in all_elements %}
+		<div class="elem"><a href="{{ url('handbook:race_page-b', args=[elem.name_eng]) }}">
+				<img src="{{ static('handbook/images/'+name+'/'+elem.name_eng+'.png') }}" alt="{{ elem.name_eng }}">
+			<p>{{ elem.name_rus }}</p>
+			<p>{{ elem.name_eng }}</p>
+		</a></div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+
