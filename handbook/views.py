@@ -9,7 +9,8 @@ def index2(request) -> HttpResponse:
     variables = {
         "name": "index",
         "title": "Home",
-        "show_bg": True
+        "show_bg": True,
+        "path": []
     }
 
     return render(request, "handbook-new/index.html", variables)
@@ -22,6 +23,7 @@ def races2(request) -> HttpResponse:
         "title": "Races",
         "header": "Расы и происхождения",
         "show_bg": True,
+        "path": [["Races", "races"]],
         "all_elements": all_races
     }
 
@@ -31,9 +33,10 @@ def races2(request) -> HttpResponse:
 def race_page2(request, name_eng: str) -> HttpResponse:
     cur_race = GameRace.objects.get(name_eng=name_eng)
     variables = {
-        "name": "race_page",
+        "name": "race-page",
         "title": name_eng,
         "show_bg": False,
+        "path": [["Races", "races"], [name_eng, "race-page"]],
         "info": cur_race
     }
 

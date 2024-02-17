@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- License: PD. Made by mapbox: https://github.com/mapbox/maki -->
+<svg fill="#2a2e3e" width="500px" height="100px" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 0,100 460,100 500,50 460,0" style=""/>
+</svg>

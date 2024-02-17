@@ -41,16 +41,32 @@
 
 	<!-- Site sidebar -->
 	<div class="sidebar">
-		<img src="{{ static('handbook/images/logo.svg') }}" alt="logo-btn" onclick="openNav()">
+		<a href="{{ url('handbook:index-b') }}"><img src="{{ static('handbook/images/logo.svg') }}" alt="logo-btn"></a>
+		<img class="filter-svg" src="{{ static('handbook/images/hamburger.svg') }}" alt="hamburger" onclick="openNav()">
 	</div>
+
+	{% if path != [] %}
+	<div class="path">
+		<a class="path-elem" href="{{ url('handbook:index-b') }}">
+			<img src="{{ static('handbook/images/path/start.svg') }}" alt="start-path">
+			<p>Home</p>
+		</a>
+		{% for elem in path %}
+			<a class="path-elem" href="{{ url('handbook:'+elem[1]) }}">
+				<img src="{{ static('handbook/images/path/elem.svg') }}" alt="path-elem">
+				<p>{{ elem[0] }}</p>
+			</a>
+		{% endfor %}
+	</div>
+	{% endif %}
 
 	<!-- Overlay and navigation -->
 	<div class="overlay" id="overlay" onclick="closeNav()"></div>
 	<div class="navigation" id="navigation">
 		<div class="header">
             <img src="{{ static('images/logo.svg') }}" alt="logo">
-            <h2>Онлайн справочник по Devumid'у</h2>
-            <h1>BFN.DEV</h1>
+            <h2>Онлайн справочник по миру Devumid</h2>
+            <h1>BFN-DEV</h1>
         </div>
 		<div class="content">
 			{% for group in menu %}

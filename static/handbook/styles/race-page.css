@@ -1,0 +1,28 @@
+.context > h1 {
+	margin: 3vh 1vw;
+	font-size: 2.2vw;
+}
+.context > h2 {
+	margin: 3vh 1vw;
+	margin-bottom: 1vh;
+	font-size: 1.8vw;
+}
+.context p {
+	width: 60%;
+
+	margin-left: 2vw;
+	font-size: 1.3vw;
+}
+.context b {
+	font-weight: 900;
+	color: #bbb;
+}
+
+.group p{
+	margin: .3vh 2vw;
+}
+
+.background {
+	height: auto; width: 37vw;
+}
+
