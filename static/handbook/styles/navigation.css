@@ -1,0 +1,127 @@
+/* CSS file created by Befrimon Reminodal (Nikita Poloskov) https://github.com/Befrimon */
+/* CSS file for navigation menu */
+
+.overlay {
+	display: fixed;
+	position: absolute;
+
+	left: 0; top: 0;
+	height: 100vh; width: 100vw;
+
+	background-color: #000;
+	opacity: 0;
+
+	z-index: 1;
+	visibility: hidden;
+	transition: .5s;
+}
+
+.navigation {
+	display: fixed;
+	position: absolute;
+
+	left: -50vw; top: 2vh;
+	height: 50vh; width: 45vw;
+
+	background-color: #1e222b;
+	border: .1vw solid #5c5c5c;
+	border-radius: 1vw;
+
+	z-index: 2;
+	visibility: hidden;
+	transition: .5s;
+}
+
+.navigation > .header {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+
+	left: 0; right: 0;
+	height: 20%; width: 100%;
+
+	border-bottom: .1vw solid #5c5c5c;
+}
+.navigation > .header img {
+	position: relative;
+
+	left: 3%; top: 10%;
+	height: 80%; width: auto;
+}
+.navigation > .header h1 {
+	position: relative;
+
+	margin: 0;
+	left: -43%; top: 50%;
+
+	font-size: 1.7vw;
+}
+.navigation > .header h2 {
+	position: relative;
+	
+	margin: 0;
+	left: 5%; top: 10%;
+
+	font-size: 1.4vw;
+}
+
+.navigation > .content {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 3%;
+	position: relative;
+
+	margin: 3%;
+	left: 0; right: 0;
+	height: 80%; width: 94%;
+}
+
+.navigation > .content > .section > .header {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+}
+.navigation > .content > .section > .header > p {
+	margin: 0;
+	font-size: 1.2vw;
+	color: #909090;
+}
+.navigation > .content > .section > .header > .line {
+	position: relative;
+
+	margin: 0 .5vw;
+	left: 0; top: 1.6vh;
+	height: .2vh;
+	
+	background-color: #909090;
+}
+.navigation > .content > .section > .header > img {
+	position: relative;
+
+	margin: 0;
+	right: 0; top: 0;
+	height: 3.2vh; width: auto;
+}
+
+.navigation > .content > .section > .elements ul {
+	position: relative;
+
+	margin: 0;
+	margin-top: 10%;
+	padding: 0;
+	list-style: none;
+}
+.navigation > .content > .section > .elements li {
+	font-size: 1vw;
+	padding-bottom: 3%;
+}
+.navigation > .content > .section > .elements li:hover {
+	color: #7b5eee;
+}
+.navigation > .content > .section > .elements a {
+	color: #fff;
+	text-decoration: none;
+}
+.navigation > .content > .section > .elements a:visited {
+	color: #fff;
+	text-decoration: none;
+}

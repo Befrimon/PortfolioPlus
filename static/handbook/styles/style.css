@@ -1,0 +1,51 @@
+/* CSS file created by Befrimon Reminodal (Nikita Poloskov) https://github.com/Befrimon */
+/* Main style.css for desktop media */
+
+::-webkit-scrollbar {
+	width: .3vw;
+  	height: .3vw;
+}
+::-webkit-scrollbar-track {
+	background: #1e222b;
+}
+::-webkit-scrollbar-thumb {
+	background: #2e235f;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #4c34af;
+}
+
+body {
+	margin: 0 0;
+	background-color: #1e222b;
+	color: #fff;
+	font-family: "Rubik";
+}
+
+.background {
+	position: fixed;
+
+	right: 0; bottom: 0;
+	height: 70vh; width: auto;
+}
+
+.sidebar {
+	position: fixed;
+
+	left: 0; top: 0;
+	height: 100vh; width: 5vw;
+
+	border-right: .2vw solid #5c5c5c;
+}
+.sidebar img {
+	margin: 10%;
+	height: auto; width: 80%;
+}
+
+.context {
+	display: fixed;
+	position: absolute;
+
+	left: 5vw;
+	height: auto; width: 95vw;
+}

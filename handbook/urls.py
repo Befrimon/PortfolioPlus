@@ -4,6 +4,10 @@ from . import views
 
 app_name = "handbook"
 urlpatterns = [
+    ### New path
+    path("beta/", views.index2, name="index-b"),
+
+    ### Old path
     path("", views.index, name="index"),
     
     path("races/", views.races, name="races"),

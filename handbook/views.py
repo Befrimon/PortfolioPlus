@@ -4,6 +4,17 @@ import pickle
 import uuid
 
 
+### New views
+def index2(request) -> HttpResponse:
+    variables = {
+        "title": "Home",
+        "show_bg": True
+    }
+
+    return render(request, "handbook/index-2.html", variables)
+
+
+### Old views
 def index(request) -> HttpResponse:
     return render(request, "handbook/index.html", {})
 

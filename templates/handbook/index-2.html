@@ -1,0 +1,29 @@
+{% extends 'handbook/subtemp-2.html' %}
+
+{% set sections = {
+	'Персонаж': [['Лист игрока', 'heroes'], ['Расы и происхождения', 'races'], ['Классы и навыки', 'classes']],
+	'Предметы': [['Оружие и фокусировки', 'weapons'], ['Доспехи и одежда', 'armors'], ['Прочее снаряжение', 'equipment']],
+	'Мироустройство': [['Бестиарий', 'monsters'], ['Религии', 'religions'], ['География', 'geography']]
+}
+%}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/index.css') }}"
+{% endblock %}
+
+{% block context %}
+<input type="search" placeholder="Поиск по архиву Devumid">
+
+{% for sect in sections %}
+	<h1>{{ sect }}</h1>
+	<div class="section">
+	{% for elem in sections[sect] %}
+		<div class="elem"><a href="#">
+				<img src="{{ static('handbook/images/sections/'+elem[1]+'.png') }}" alt="{{ elem[1] }}">
+			<p>{{ elem[0] }}</p>
+		</a></div>
+	{% endfor %}
+	</div>
+{% endfor %}
+
+{% endblock %}
