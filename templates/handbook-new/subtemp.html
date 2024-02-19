@@ -45,21 +45,6 @@
 		<img class="filter-svg" src="{{ static('handbook/images/hamburger.svg') }}" alt="hamburger" onclick="openNav()">
 	</div>
 
-	{% if path != [] %}
-	<div class="path">
-		<a class="path-elem" href="{{ url('handbook:index-b') }}">
-			<img src="{{ static('handbook/images/path/start.svg') }}" alt="start-path">
-			<p>Home</p>
-		</a>
-		{% for elem in path %}
-			<a class="path-elem" href="{{ url('handbook:'+elem[1]) }}">
-				<img src="{{ static('handbook/images/path/elem.svg') }}" alt="path-elem">
-				<p>{{ elem[0] }}</p>
-			</a>
-		{% endfor %}
-	</div>
-	{% endif %}
-
 	<!-- Overlay and navigation -->
 	<div class="overlay" id="overlay" onclick="closeNav()"></div>
 	<div class="navigation" id="navigation">

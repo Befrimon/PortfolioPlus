@@ -45,34 +45,9 @@ body {
 	filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(265deg) brightness(102%) contrast(104%);
 }
 
-.path {
-	position: fixed;
-	display: inline-block;
-
-	padding: 1vw;
-
-	left: 5vw; top: 0;
-	height: 4vh; width: 95vw;
-}
-.path img {
-	height: 4vh;width: auto;
-}
-.path a {
-	display: inline-block;
-	text-decoration: none;
-	width: 20vh;
-}
-.path p {
-	position: relative;
-
-	left: 2vw; top: -5vh;
-	color: #fff;
-	font-size: 1vw;
-}
-
 .context {
 	position: fixed;
 
-	left: 5vw; top: 6vh;
+	left: 5vw; top: 0;
 	height: auto; width: 95vw;
 }
