@@ -5,140 +5,98 @@ import uuid
 
 
 ### New views
-def index2(request) -> HttpResponse:
+def index(request) -> HttpResponse:
     variables = {
         "name": "index",
         "title": "Home",
-        "show_bg": True,
-        "path": []
+        "show_bg": True
     }
 
-    return render(request, "handbook-new/index.html", variables)
+    return render(request, "handbook/index.html", variables)
 
 
-def races2(request) -> HttpResponse:
+def heroes(request) -> HttpResponse:
+    hero_list = request.session.keys()
+    variables = {
+        "name": "heroes",
+        "title": "Heroes",
+        "show_bg": True,
+        "heroes": [pickle.loads(bytes.fromhex(request.session.get(hid))) for hid in hero_list]
+    }
+
+    return render(request, "handbook/heroes.html", variables)
+
+
+def new_hero(request) -> HttpResponse:
+    hero_data = {
+        "uid": str(uuid.uuid4()),
+        "name": "Unknown",
+        "lvl": 1,
+        "race": "",
+        "class": "",
+        "hits": [0, 0],
+        "energy": [0, 0]
+    }
+    request.session[hero_data["uid"]] = pickle.dumps(hero_data).hex()
+
+    variables = {
+        "name": "new_hero",
+        "title": "Unknown",
+        "show_bg": True,
+        "hero_data": hero_data
+    }
+
+    return render(request, "closed.html", {})# "hero_page.html", variables)
+
+
+
+def races(request) -> HttpResponse:
     all_races = GameRace.objects.all()
     variables = {
         "name": "races",
         "title": "Races",
         "header": "Расы и происхождения",
         "show_bg": True,
-        "path": [["Races", "races"]],
         "all_elements": all_races
     }
 
-    return render(request, "handbook-new/races.html", variables)
+    return render(request, "handbook/races.html", variables)
 
 
-def race_page2(request, name_eng: str) -> HttpResponse:
+def race_page(request, name_eng: str) -> HttpResponse:
     cur_race = GameRace.objects.get(name_eng=name_eng)
     variables = {
         "name": "race-page",
         "title": name_eng,
         "show_bg": False,
-        "path": [["Races", "races"], [name_eng, "race-page"]],
         "info": cur_race
     }
 
-    return render(request, "handbook-new/race-page.html", variables)
+    return render(request, "handbook/race-page.html", variables)
 
 
-### Old views
-def index(request) -> HttpResponse:
-    return render(request, "handbook/index.html", {})
+
+#def classes(request) -> HttpResponse:
+#    #all_classes = GameSkill.objects.all()
+#    context = {
+#        "all_classes": None #all_classes,
+#        # "img_path": {race.name_eng: f"/images/races/{race.name_eng}.png".replace(" ", "") for race in all_races}
+#    }
+#    return render(request, "handbook/classes.html", context)
 
 
-def races(request) -> HttpResponse:
-    all_races = GameRace.objects.all()
-    context = {
-        "all_races": all_races,
-        "img_path": {race.name_eng: f"/images/races/{race.name_eng}.png".replace(" ", "") for race in all_races}
-    }
-    return render(request, "handbook/races.html", context)
+#def weapons(request) -> HttpResponse:
+#    all_weapons= GameWeapon.objects.all()
+#    context = {
+#        "all_weapons": all_weapons,
+#    }
+#    return render(request, "handbook/weapons.html", context)
 
 
-def race_page(request, name_eng: str) -> HttpResponse:
-    race = GameRace.objects.get(name_eng=name_eng)
-    context = {
-        "name_rus": race.name_rus,
-        "name_eng": race.name_eng.replace(" ", ""),
-        "description": race.description,
-
-        "info": {
-            "title": {
-                "countries": "Страны",
-                "lands": "Территории",
-                "languages": "Языки",
-                "religions": "Религия"
-            },
-            "context": race.info
-        },
-        "create": race.create,
-        "skills": race.skills,
-        "spec": race.spec,
-        "acting": race.acting,
-
-        "base_bg": True
-    }
-    return render(request, "handbook/race_page.html", context)
-
-
-def heroes(request) -> HttpResponse:
-    hero_list = request.session.keys()
-
-    context = {
-        "heroes": [pickle.loads(bytes.fromhex(request.session.get(hid))) for hid in hero_list]
-    }
-    return render(request, "handbook/heroes.html", context)
-
-
-def new_hero(request) -> HttpResponse:
-    hero_id = str(uuid.uuid4())
-    context = {
-        "id": hero_id,
-        "name": "New hero",
-        "hp": [10, 10],
-        "energy": [2, 2]
-    }
-
-    request.session[hero_id] = pickle.dumps(context).hex()
-
-    return render(request, "handbook/hero.html", context)
-
-
-def hero(request, hero_id: str) -> HttpResponse:
-    hero_data = pickle.loads(bytes.fromhex(request.session.get(hero_id)))
-
-    context = {
-        "name": hero_data["name"],
-        "hp": hero_data["hp"],
-        "energy": hero_data["energy"]
-    }
-
-    return render(request, "handbook/hero.html", context)
-
-
-def classes(request) -> HttpResponse:
-    #all_classes = GameSkill.objects.all()
-    context = {
-        "all_classes": None #all_classes,
-        # "img_path": {race.name_eng: f"/images/races/{race.name_eng}.png".replace(" ", "") for race in all_races}
-    }
-    return render(request, "handbook/classes.html", context)
-
-
-def weapons(request) -> HttpResponse:
-    all_weapons= GameWeapon.objects.all()
-    context = {
-        "all_weapons": all_weapons,
-    }
-    return render(request, "handbook/weapons.html", context)
-
-
-def armor(request) -> HttpResponse:
-    all_armor = GameArmor.objects.all()
-    context = {
-        "all_armor": all_armor
-    }
-    return render(request, "handbook/armor.html", context)
+#def armor(request) -> HttpResponse:
+#    all_armor = GameArmor.objects.all()
+#    context = {
+#        "all_armor": all_armor
+#    }
+#    return render(request, "handbook/armor.html", context)
 

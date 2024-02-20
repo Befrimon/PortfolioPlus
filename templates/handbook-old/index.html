@@ -1,0 +1,68 @@
+{% extends 'handbook/subtemplate.html' %}
+
+{% block title %}Devumid Handbook{% endblock %}
+
+{% block content %}
+   	<div class="search-input">
+    <label><input type="text" placeholder="Поиск по архиву Devumid">
+    </label></div>
+    <h2 class="section-title">Персонаж</h2>
+    <div class="mp-section">
+        <div class="section-elem">
+            <a href="{{ url('handbook:heroes') }}">
+                <img src="{{ static('images/home_sections/player_list.png') }}" alt="">
+                <p>Лист игрока</p>
+            </a>
+        </div>
+        <div class="section-elem">
+            <a href="{{ url('handbook:races') }}">
+                <img src="{{ static('images/home_sections/race.png') }}" alt="">
+                <p>Расы и происхождения</p>
+            </a>
+        </div>
+        <div class="section-elem">
+			<a href="{{ url('handbook:classes') }}">
+            	<img src="{{ static('images/home_sections/skills.png') }}" alt="">
+            	<p>Классы и навыки</p>
+			</a>
+        </div>
+    </div>
+
+    <br>
+    <h2 class="section-title">Предметы</h2>
+    <div class="mp-section">
+        <div class="section-elem">
+			<a href="{{ url('handbook:weapons') }}">
+            	<img src="{{ static('images/home_sections/weapon.png') }}" alt="">
+            	<p>Оружие и фокусировки</p>
+			</a>
+        </div>
+        <div class="section-elem">
+			<a href="{{ url('handbook:armor') }}">
+            	<img src="{{ static('images/home_sections/armor.png') }}" alt="">
+            	<p>Доспехи и одежда</p>
+			</a>
+        </div>
+        <div class="section-elem">
+            <img src="{{ static('images/home_sections/other_inventory.png') }}" alt="">
+            <p>Прочее снаряжение</p>
+        </div>
+    </div>
+
+    <br>
+    <h2 class="section-title">Мироустройство</h2>
+    <div class="mp-section">
+        <div class="section-elem">
+            <img src="{{ static('images/home_sections/monsters.png') }}" alt="">
+            <p>Бестиарий</p>
+        </div>
+        <div class="section-elem">
+            <img src="{{ static('images/home_sections/religions.png') }}" alt="">
+            <p>Религии</p>
+        </div>
+        <div class="section-elem">
+            <img src="{{ static('images/home_sections/geography.png') }}" alt="">
+            <p>География</p>
+        </div>
+    </div>
+{% endblock %}

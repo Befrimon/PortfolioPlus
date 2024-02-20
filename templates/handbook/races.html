@@ -1,25 +1,16 @@
-{% extends 'handbook/subtemplate.html' %}
+{% extends 'handbook/subtemp.html' %}
 
-{% block title %}Races | Devumid Handbook{% endblock %}
-
-
-{% block content %}
-    <h1 class="section-title">Расы и происхождения</h1>
-
-    {% if all_races %}
-    <div class="mp-section">
-    {% for race in all_races %}
-        <div class="section-elem race-elem">
-            <a href="{{ url('handbook:race_page', args=[race.name_eng]) }}">
-                {% set path = img_path[race.name_eng] %}
-                <img src="{{ static(path) }}" alt="">
-                <p>{{ race.name_rus }}</p>
-                <p class="subname">{{ race.name_eng }}</p>
-            </a>
-        </div>
-    {% endfor %}
-    </div>
-    {% else %}
-        <p>Database error, no races found</p>
-    {% endif %}
+{% block context %}
+	<h1>{{ header }}</h1>
+	<div class="table-grid">
+		{% for elem in all_elements %}
+		<div class="elem"><a href="{{ url('handbook:race_page', args=[elem.name_eng]) }}">
+				<img src="{{ static('handbook/images/'+name+'/'+elem.name_eng+'.png') }}" alt="{{ elem.name_eng }}">
+			<p>{{ elem.name_rus }}</p>
+			<p>{{ elem.name_eng }}</p>
+		</a></div>
+		{% endfor %}
+	</div>
 {% endblock %}
+
+

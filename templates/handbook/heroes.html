@@ -1,22 +1,12 @@
-{% extends 'handbook/subtemplate.html' %}
+{% extends 'handbook/subtemp.html' %}
 
-{% block title %}Heroes | Devumid Handbook{% endblock %}
+{% block context %}
 
-{% block content %}
-	<h1 class="section-title">Мои персонажи</h1>
-	{% if heroes %}
-	<div class="hero-list">
-  {% for hero in heroes %}
-		<a class="herobox" href="{{ url('handbook:hero', args=[hero.id]) }}">
-			<img src="{{ static('images/unknown_hero.png') }}" alt="">
-			<div class="desc">
-      <h2>{{ hero.name }}</h2>
-			<p><b>HP</b> {{ hero.hp[0] }}//{{ hero.hp[1] }} <b>Energy</b> {{ hero.energy[0] }}//{{ hero.energy[1] }}</p>
-			</div>
-		</a>
-	{% endfor %}
-	</div>
-	{% else %}
-  	<p>У вас пока что нет персонажей. Но вы можете <a href="{{ url('handbook:new_hero') }}">создать</a> нового</p>
-  {% endif %}
+<h1>Ваши персонажи</h1>
+
+<div class="hero-section">
+	<h2></h2>
+
+</div>
+
 {% endblock %}
