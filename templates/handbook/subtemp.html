@@ -1,98 +1,99 @@
 <html lang="en">
 <head>
-	<!-- Set meta -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Set meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	
-	<!-- Set css files -->
-	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/style.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/navigation.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/'+name+'.css') }}">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rubik">
+  <!-- Set css files -->
+  <link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/style.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/navigation.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ static('handbook/styles/'+name+'.css') }}" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rubik" />
 
-	<!-- Set icon file -->
-	<link rel="icon" type="image/x-icon" href="{{ static('handbook/images/logo.svg') }}">
+  <!-- Set icon file -->
+  <link rel="icon" type="image/x-icon" href="{{ static('handbook/images/logo.svg') }}" />
 
-	<!-- Set title -->
-	<title>{{ title }} | Devumid Handbook</title>
+  <!-- Set title -->
+  <title>{{ title }} | Devumid Handbook</title>
 </head>
 
 {% set menu = {
-	'Персонаж': {
-		'eng': 'player',
-		'elements': ['Лист игрока', 'Классы и навыки', 'Расы и происхождения', 'Боевые навыки', 'Заклинания и ритуалы']
-	},
-	'Предметы': {
-		'eng': 'items',
-		'elements': ['Оружие и фокусировки', 'Доспехи и одежда', 'Прочее снаряжение', 'Артефакты', 'Еда и напитки']
-	},
-	'Мироустройство': {
-		'eng': 'world',
-		'elements': ['Бестиарий', 'География', 'Политика', 'Религии']
-	}
+  'Персонаж': {
+	'eng': 'player',
+	'elements': ['Лист игрока', 'Классы и навыки', 'Расы и происхождения', 'Боевые навыки', 'Заклинания и ритуалы']
+  },
+  'Предметы': {
+	'eng': 'items',
+	'elements': ['Оружие и фокусировки', 'Доспехи и одежда', 'Прочее снаряжение', 'Артефакты', 'Еда и напитки']
+  },
+  'Мироустройство': {
+	'eng': 'world',
+	'elements': ['Бестиарий', 'География', 'Политика', 'Религии']
+  }
 } 
 %}
 
 <body>
-	<!-- Draw background image if option enabled -->
-	{% if show_bg %}
-		<img class="background" src="{{ static('handbook/images/background.png') }}" alt="background">
-	{% endif %}
+  <!-- Draw background image if option enabled -->
+  {% if show_bg %}
+	<img class="background" src="{{ static('handbook/images/background.png') }}" alt="background" />
+  {% endif %}
 
-	<!-- Site sidebar -->
-	<div class="sidebar">
-		<a href="{{ url('handbook:index') }}"><img src="{{ static('handbook/images/logo.svg') }}" alt="logo-btn"></a>
-		<img class="filter-svg" src="{{ static('handbook/images/hamburger.svg') }}" alt="hamburger" onclick="openNav()">
-	</div>
+  <!-- Site sidebar -->
+  <div class="sidebar">
+	<a href="{{ url('handbook:index') }}"><img src="{{ static('handbook/images/logo.svg') }}" alt="logo-btn"></a>
+	<img class="filter-svg" src="{{ static('handbook/images/hamburger.svg') }}" alt="hamburger" onclick="openNav()" />
+  </div>
 
-	<!-- Overlay and navigation -->
-	<div class="overlay" id="overlay" onclick="closeNav()"></div>
-	<div class="navigation" id="navigation">
-		<div class="header">
-            <img src="{{ static('images/logo.svg') }}" alt="logo">
-            <h2>Онлайн справочник по миру Devumid</h2>
-            <h1>BFN-DEV</h1>
-        </div>
-		<div class="content">
-			{% for group in menu %}
-			{% set cur = menu[group] %}
-			<div class="section">
-			<div class="header">
-				<p>{{ group }}</p>
-				<div class="line"></div>
-				<img src="{{ static('handbook/images/navigation/'+cur['eng']+'.svg') }}" alt="{{ cur['eng'] }}">
-			</div>
-			<div class="elements">
+  <!-- Overlay and navigation -->
+  <div class="overlay" id="overlay" onclick="closeNav()"></div>
+  <div class="navigation" id="navigation">
+	<div class="header">
+      <img src="{{ static('handbook/images/logo.svg') }}" alt="logo" />
+      <h2>Онлайн справочник по миру Devumid</h2>
+      <h1>BFN-DEV</h1>
+    </div>
+	<div class="content">
+	  {% for group in menu %}
+		{% set cur = menu[group] %}
+		<div class="section">
+		  <div class="header">
+			<p>{{ group }}</p>
+			<div class="line"></div>
+			<img src="{{ static('handbook/images/navigation/'+cur['eng']+'.svg') }}" alt="{{ cur['eng'] }}" />
+		  </div>
+		  <div class="elements">
 			<ul>
-				{% for elem in cur['elements'] %}
+			  {% for elem in cur['elements'] %}
 				<a href="#"><li>{{ elem }}</li></a>
-				{% endfor %}
+			  {% endfor %}
 			</ul>
-			</div></div>
-			{% endfor %}
+		  </div>
 		</div>
+	  {% endfor %}
 	</div>
+  </div>
 
-	<div class="context">
-		{% block context %}{% endblock %}
-	</div>
+  <div class="context">
+	{% block context %}{% endblock %}
+  </div>
 
-	<script type="text/javascript">
-		function openNav() {
-			document.getElementById("overlay").style.opacity = ".75";
-			document.getElementById("overlay").style.visibility = "visible";
+  <script type="text/javascript">
+	function openNav() {
+	  document.getElementById("overlay").style.opacity = ".75";
+	  document.getElementById("overlay").style.visibility = "visible";
 
-			document.getElementById("navigation").style.left = "6vw";
-			document.getElementById("navigation").style.visibility = "visible";
-		}
-		function closeNav() {
-			document.getElementById("overlay").style.opacity = "0";
-			document.getElementById("overlay").style.visibility = "hidden";
+	  document.getElementById("navigation").style.left = "6vw";
+	  document.getElementById("navigation").style.visibility = "visible";
+	}
+	function closeNav() {
+	  document.getElementById("overlay").style.opacity = "0";
+	  document.getElementById("overlay").style.visibility = "hidden";
 
-			document.getElementById("navigation").style.left = "-50vw";
-			document.getElementById("navigation").style.visibility = "hidden";
-		}
-		{% block jscript %}{% endblock %}
-	</script>
+	  document.getElementById("navigation").style.left = "-50vw";
+	  document.getElementById("navigation").style.visibility = "hidden";
+	}
+  </script>
+  {% block jscript %}{% endblock %}
 </body>
 </html>

@@ -8,29 +8,28 @@
 <p>{{ info.description }} </p>
 
 <div class="group">
-	<p><b>Страны:</b> {{ info.info.countries }}</p>
-	<p><b>Территории:</b> {{ info.info.lands }}</p>
-	<p><b>Языки:</b> {{ info.info.languages }}</p>
-	<p><b>Религия:</b> {{ info.info.religions }}</p>
+  <p><b>Страны:</b> {{ info.info.countries }}</p>
+  <p><b>Территории:</b> {{ info.info.lands }}</p>
+  <p><b>Языки:</b> {{ info.info.languages }}</p>
+  <p><b>Религия:</b> {{ info.info.religions }}</p>
 </div>
 
 <h2>Особенности</h2>
 <div class="group">
-	<p><b>Навыки.</b> {{ info.name_rus }} получает {{ info.skills.value }} очка навыка для развития характеристики {{ info.skills.skill }}</p>
-	<p><b>Возраст.</b> {{ info.create.age }}</p>
-	<p><b>Рост.</b> {{ info.create.height }}</p>
-	<p><b>Скорость.</b> Ваша скорость передвижения {{ info.create.speed }} ячеек ({{ info.create.speed*5 }} футов)</p>
+  <p><b>Навыки.</b> {{ info.name_rus }} получает {{ info.skills.value }} очка навыка для развития характеристики {{ info.skills.skill }}</p>
+  <p><b>Возраст.</b> {{ info.create.age }}</p>
+  <p><b>Рост.</b> {{ info.create.height }}</p>
+  <p><b>Скорость.</b> Ваша скорость передвижения {{ info.create.speed }} ячеек ({{ info.create.speed*5 }} футов)</p>
 </div>
 
 <h2>Отыгрыш и создание</h2>
 <div class="group">
-	{% for elem in info.spec %}
+  {% for elem in info.spec %}
 	<p><b>{{ elem.title }}.</b> {{ elem.description }}</p>
-	{% endfor %}
-	{% for elem in info.acting %}
+  {% endfor %}
+  {% for elem in info.acting %}
 	<p><b>{{ elem.title }}.</b> {{ elem.description }}</p>
-	{% endfor %}
+  {% endfor %}
 </div>
-
 
 {% endblock %}

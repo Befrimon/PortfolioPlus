@@ -1,0 +1,67 @@
+.context > h1 {
+	margin: 3vh 1vw;
+	margin-bottom: 1vh;
+	font-size: 2vw;
+}
+
+.context > input {
+	padding: 0 .3vw;
+	margin: 1vh 3%;
+	height: 5vh; width: 94%;
+
+	background: #2a2e3e;
+
+	border: none;
+	border-radius: .4vw;
+
+	color: #fff;
+	font-size: 1.2vw;
+}
+.context > input:focus {
+	outline: none !important;
+	border: .1vw solid #7b5eee; 
+}
+.context > input:placeholder {
+	color: #8c8e9e;
+	font-size: 1.2vw;
+}
+
+.context > table {
+	position: relative;
+
+	margin: 0 2.5vw;
+	height: auto; width: 90vw;
+
+	border-collapse: collapse;
+}
+.context > table th {
+	font-size: 1.5vw;
+	text-align: left;
+	border-bottom: .15vw solid #fff;
+}
+.context > table td {
+	font-size: 1vw;
+	border-bottom: .1vw solid #fff;
+}
+.context > table th, .context > table td {
+	margin: 0;
+	height: 2.5vw; width: auto;
+}
+.context > table th > img {
+	position: relative;
+
+	left: .5vw; top: 0;
+	height: 1.2vw; width: auto;
+	filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(218deg) brightness(102%) contrast(101%);
+
+	visibility: hidden;
+}
+.context > table th:hover {
+	background-color: rgba(120, 90, 145, .5); 
+}
+.context > table th:hover > img{
+	visibility: visible;
+}
+.context > table tr:nth-child(even) {
+	background-color: rgba(120, 90, 145, .5);
+}

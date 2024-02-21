@@ -46,32 +46,6 @@ class RaceSkill(models.Model):
         abstract = True
 
 
-class CostObj(models.Model):
-    gold = models.IntegerField()
-    silver = models.IntegerField()
-    copper = models.IntegerField()
-
-    class Meta:
-        abstract = True
-
-
-class DamageObj(models.Model):
-    dice_count = models.IntegerField()
-    dice = models.IntegerField()
-    ttype = models.TextField()
-
-    class Meta:
-        abstract = True
-
-
-class RangedObj(models.Model):
-    isr = models.BooleanField()
-    distance = models.Field()
-
-    class Meta:
-        abstract = True
-
-
 class GameRace(models.Model):
     _id = models.ObjectIdField()
 
@@ -95,34 +69,27 @@ class GameRace(models.Model):
         return self.name_eng
 
 
-class GameWeapon(models.Model):
+class GameWeaponNew(models.Model):
     _id = models.ObjectIdField()
-    name_rus = models.TextField()
+    name = models.TextField()
 
-    costs = models.EmbeddedField(
-        model_container=CostObj
-    )
-    damage = models.EmbeddedField(
-        model_container=DamageObj
-    )
-    ranged = models.EmbeddedField(
-        model_container=RangedObj
-    )
-
+    costs = models.JSONField()
+    damage = models.JSONField()
+    damage_type = models.TextField()
     weight = models.IntegerField()
-    group_type = models.TextField()
-    twohanded = models.BooleanField()
+    features = models.JSONField() 
+
+    group = models.TextField()
 
 
-class GameArmor(models.Model):
+class GameArmorNew(models.Model):
     _id = models.ObjectIdField()
-    name_rus = models.TextField()
+    name = models.TextField()
 
     ac = models.IntegerField()
     material = models.TextField()
     weight = models.IntegerField()
+    costs = models.JSONField()
 
-    costs = models.EmbeddedField(
-        model_container=CostObj
-    )
+    group = models.TextField()
 

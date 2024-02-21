@@ -1,0 +1,38 @@
+{% extends 'handbook/subtemp.html' %}
+
+{% block context %}
+
+<h1>{{ header }}</h1>
+
+<input type="search" placeholder="Поиск по названию" id="search" onkeyup="findNames()" />
+
+<table id="itemTable">
+<thead>
+  <tr>
+	{% for title in columns %} 	
+	  <th onclick="sortTable({{ loop.index0 }})">
+		{{ title }} 
+		<img src="{{ static('handbook/images/sort0.svg') }}" />
+	  </th>
+	{% endfor %}
+  </tr>
+</thead>
+<tbody>
+  {% for item in fill %}
+	<tr>
+	  {% for cell in item %}
+		<td>{{ cell }}</td>
+	  {% endfor %}
+	</tr>
+  {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
+
+{% block jscript %}
+
+<script type="text/javascript" src="{{ static('handbook/scripts/table-sort.js') }}"></script>
+
+{% endblock %}
+

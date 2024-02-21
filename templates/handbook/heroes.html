@@ -4,9 +4,38 @@
 
 <h1>Ваши персонажи</h1>
 
-<div class="hero-section">
-	<h2></h2>
+<div class="table-grid">
+  <a href="{{ url('handbook:hero-page', args=["new"]) }}">
+  	<div class="section new">
+	  <h1>Создать персонажа</h1>
+  	</div>
+  </a>
 
+  {% for hero in heroes %}
+  	<a href="{{ url('handbook:hero-page', args=[hero.uid]) }}">
+	  <div class="section">
+	  	<img src="{{ static('handbook/images/unknown_hero.png') }}" alt="hero-image" />
+	  	<h2>{{ hero.name }} - {{ hero.lvl }} уровень</h2>
+		<p>{{ hero.race }} - {{ hero.class }}</p>
+
+	  	<div class="side">
+		  {% if hero.hits.max == 0 %}
+			{% set color = "#329646" %}
+		  {% elif hero.hits.cur == 0 %}
+		  	{% set color = "#c81e1e" %} 
+		  {% elif hero.hits.cur / hero.hits.max <= 0.2 %}
+		  	{% set color = "#c8641e" %}
+		  {% elif hero.hits.cur / hero.hits.max <= 0.5 %}
+			{% set color = "#c8b41e" %}
+		  {% else %}
+		  	{% set color = "#329646" %}	
+		  {% endif %}
+		  <p style="color: {{ color }}; border-color: {{ color }};">HP {{ hero.hits.cur }}/{{ hero.hits.max }}</p>
+		  <p>EP {{ hero.energy.cur }}/{{ hero.energy.max }}</p>
+	  	</div>
+	  </div>
+  	</a>
+  {% endfor %}
 </div>
 
 {% endblock %}

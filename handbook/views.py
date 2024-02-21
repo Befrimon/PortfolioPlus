@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import GameRace, GameWeapon, GameArmor
+from .models import GameRace, GameWeaponNew, GameArmorNew
 import pickle
 import uuid
 
@@ -21,32 +21,35 @@ def heroes(request) -> HttpResponse:
         "name": "heroes",
         "title": "Heroes",
         "show_bg": True,
-        "heroes": [pickle.loads(bytes.fromhex(request.session.get(hid))) for hid in hero_list]
+        "heroes": [pickle.loads(bytes.fromhex(request.session.get(hero_id))) for hero_id in hero_list]
     }
 
     return render(request, "handbook/heroes.html", variables)
 
 
-def new_hero(request) -> HttpResponse:
-    hero_data = {
-        "uid": str(uuid.uuid4()),
-        "name": "Unknown",
-        "lvl": 1,
-        "race": "",
-        "class": "",
-        "hits": [0, 0],
-        "energy": [0, 0]
-    }
-    request.session[hero_data["uid"]] = pickle.dumps(hero_data).hex()
+def hero_page(request, hero_id: str) -> HttpResponse:
+    if hero_id == "new":
+        hero_data = {
+            "uid": str(uuid.uuid4()),
+            "name": "Unknown",
+            "lvl": 1,
+            "race": "Unknown race",
+            "class": "Unknown class",
+            "hits": {"max": 0, "cur": 0},
+            "energy": {"max": 0, "cur": 0}
+        }
+        request.session[hero_data["uid"]] = pickle.dumps(hero_data).hex()
+    else:
+        hero_data = pickle.loads(bytes.fromhex(request.session.get(hero_id)))
 
     variables = {
-        "name": "new_hero",
-        "title": "Unknown",
+        "name": "hero-page",
+        "title": hero_data["name"],
         "show_bg": True,
         "hero_data": hero_data
     }
 
-    return render(request, "closed.html", {})# "hero_page.html", variables)
+    return render(request, "handbook/hero-page.html", variables)
 
 
 
@@ -75,28 +78,43 @@ def race_page(request, name_eng: str) -> HttpResponse:
     return render(request, "handbook/race-page.html", variables)
 
 
+def weapons(request) -> HttpResponse:
+    all_weapons = GameWeaponNew.objects.all()
+    variables = {
+        "name": "item-table",
+        "title": "Weapons",
+        "header": "Оружие и Фокусировки",
+        "show_bg": True,
+        "columns": ["Название", "Урон", "Тип урона", "Вес", "Цена", "Особенности"],
+        "fill": [[
+            item.name, 
+            f"{item.damage[0]}d{item.damage[1]}",
+            item.damage_type, 
+            f"{item.weight} фнт",
+            f"{item.costs[0]}з {item.costs[1]}с {item.costs[2]}м",
+            f"{', '.join(item.features)}"
+        ] for item in all_weapons]
+    }
 
-#def classes(request) -> HttpResponse:
-#    #all_classes = GameSkill.objects.all()
-#    context = {
-#        "all_classes": None #all_classes,
-#        # "img_path": {race.name_eng: f"/images/races/{race.name_eng}.png".replace(" ", "") for race in all_races}
-#    }
-#    return render(request, "handbook/classes.html", context)
+    return render(request, "handbook/item-table.html", variables)
 
 
-#def weapons(request) -> HttpResponse:
-#    all_weapons= GameWeapon.objects.all()
-#    context = {
-#        "all_weapons": all_weapons,
-#    }
-#    return render(request, "handbook/weapons.html", context)
+def armors(request) -> HttpResponse:
+    all_armors = GameArmorNew.objects.all()
+    variables = {
+        "name": "item-table",
+        "title": "Armors",
+        "header": "Доспехи и Одежда",
+        "show_bg": True,
+        "columns": ["Название", "КД", "Материал", "Вес", "Цена"],
+        "fill": [[
+            item.name,
+            item.ac,
+            item.material,
+            f"{item.weight} фнт",
+            f"{item.costs[0]}з {item.costs[1]}с {item.costs[2]}м"
+        ] for item in all_armors]
+    }
 
-
-#def armor(request) -> HttpResponse:
-#    all_armor = GameArmor.objects.all()
-#    context = {
-#        "all_armor": all_armor
-#    }
-#    return render(request, "handbook/armor.html", context)
+    return render(request, "handbook/item-table.html", variables)
 
