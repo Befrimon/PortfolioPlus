@@ -41,6 +41,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'PortfolioPlus.urls'
+ROOT_HOSTCONF = 'PortfolioPlus.hosts'
 
 TEMPLATES = [
     {
