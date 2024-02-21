@@ -58,7 +58,7 @@ def races(request) -> HttpResponse:
     variables = {
         "name": "races",
         "title": "Races",
-        "header": "Расы и происхождения",
+        "header": "Игровые расы",
         "show_bg": True,
         "all_elements": all_races
     }
