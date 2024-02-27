@@ -2,9 +2,9 @@
 	display: grid;
 	grid-template-columns: repeat(12, 2vw);
 	grid-auto-rows: 2vw;
-	position: fixed;
+	position: absolute;
 
-	left: 6vw; top: 1vh;
+	left: 1vw; top: 1vh;
 	height: 10vw; width: 24vw;
 
 	background-color: #272b37;
@@ -55,4 +55,32 @@
 	font-size: 1.3vw;
 	padding-top: .5vw;
 }
-.context > .info-section .
+.context > .info-section .lvl {
+	grid-column-start: 1;
+	grid-column-end: 7;
+	grid-row-start: 5;
+	grid-row-end: 6;
+
+	margin: 0;
+	margin-left: .5vw;
+}
+.context > .info-section .soul {
+	grid-column-start: 7;
+	grid-column-end: 13;
+	grid-row-start: 5;
+	grid-row-end: 6;
+
+	margin: 0;
+}
+.context > .info-section .drag-corner {
+	grid-column-start: 10;
+	grid-column-end: 13;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	
+	margin: 0; padding: 0;
+	height: .8vw;
+
+	background-color: #7b5eee;
+	border-radius: 1vw;
+}

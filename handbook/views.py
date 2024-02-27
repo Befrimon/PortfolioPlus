@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse
 from .models import GameRace, GameWeaponNew, GameArmorNew
 import pickle
 import uuid
@@ -25,23 +25,10 @@ def heroes(request) -> HttpResponse:
     }
 
     return render(request, "handbook/heroes.html", variables)
-
+ 
 
 def hero_page(request, hero_id: str) -> HttpResponse:
-    if hero_id == "new":
-        hero_data = {
-            "uid": str(uuid.uuid4()),
-            "name": "Unknown",
-            "lvl": 1,
-            "race": "Unknown race",
-            "class": "Unknown class",
-            "hits": {"max": 0, "cur": 0},
-            "energy": {"max": 0, "cur": 0}
-        }
-        request.session[hero_data["uid"]] = pickle.dumps(hero_data).hex()
-    else:
-        hero_data = pickle.loads(bytes.fromhex(request.session.get(hero_id)))
-
+    hero_data = pickle.loads(bytes.fromhex(request.session.get(hero_id)))
     variables = {
         "name": "hero-page",
         "title": hero_data["name"],
@@ -51,6 +38,20 @@ def hero_page(request, hero_id: str) -> HttpResponse:
 
     return render(request, "handbook/hero-page.html", variables)
 
+
+def new_hero(request) -> HttpResponse:
+   hero_data = {
+        "uid": str(uuid.uuid4()),
+        "name": "Unknown",
+        "lvl": 1,
+        "race": "Unknown race",
+        "class": "Unknown class",
+        "hits": {"max": 0, "cur": 0},
+        "energy": {"max": 0, "cur": 0}
+    }
+   request.session[hero_data["uid"]] = pickle.dumps(hero_data).hex()
+
+   return redirect("handbook:hero-page", hero_id=hero_data["uid"])
 
 
 def races(request) -> HttpResponse:
