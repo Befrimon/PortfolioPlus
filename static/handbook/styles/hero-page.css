@@ -1,0 +1,58 @@
+.context > .info-section {
+	display: grid;
+	grid-template-columns: repeat(12, 2vw);
+	grid-auto-rows: 2vw;
+	position: fixed;
+
+	left: 6vw; top: 1vh;
+	height: 10vw; width: 24vw;
+
+	background-color: #272b37;
+	border: .1vw solid #5c5c5c;
+	border-radius: .6vw;
+}
+.context > .info-section img {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 5;
+
+	padding: .5vw;
+
+	height: auto; width: 7vw;
+}
+.context > .info-section h1 {
+	font-size: 1vw;
+}
+.context > .info-section .name {
+	grid-column-start: 5; 
+	grid-column-end: 13;
+	grid-row-start: 1;
+	grid-row-end: 3;
+
+	margin-right: .5vw;
+
+	font-size: 1.5vw;
+	border-bottom: .1vw solid #5c5c5c;
+}
+.context > .info-section .name:focus {
+	outline: none !important;
+	border: .1vw solid #7b5eee;
+}
+.context > .info-section .race {
+	grid-column-start: 5;
+	grid-column-end: 13;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+.context > .info-section .class {
+	grid-column-start: 5;
+	grid-column-end: 13;
+	grid-row-start: 3;
+	grid-row-end: 5;
+}
+.context > .info-section :is(.race, .class) {
+	font-size: 1.3vw;
+	padding-top: .5vw;
+}
+.context > .info-section .
