@@ -105,3 +105,4 @@ GitHub.sublime-settings
 run.sh
 *.ini
 */migrations
+*/static-release
