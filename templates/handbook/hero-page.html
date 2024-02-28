@@ -2,15 +2,56 @@
 
 {% block context %}
 
-<div class="info-section" id="info">
-  <img src="{{ static('handbook/images/unknown_hero.png') }}" alt="hero-image">
-  <h1 class="name" contenteditable="true" >Имя персонажа</h1>
-  <h1 class="race">Раса персонажа</h1>
-  <h1 class="class">Класс пермонажа</h1>
-  <h1 class="lvl">99 уровень</h1>
-  <h1 class="soul">Cобрано душ: 99999</h1>
+<div class="info-section block-section" id="info">
+  	<div class="header" id="info-drag">
+  		<h1>Описание</h1>
+		<input class="toggle" id="info-toggle" type="checkbox">
+		<label for="info-toggle"></input>
+  	</div>
+  	<div class="section">
+  		<img src="{{ static('handbook/images/unknown_hero.png') }}" alt="hero-image" />
+  		<h1 class="name" contenteditable="true">{{ hero_data["name"] }}</h1>
+  		<h1 class="race">{{ hero_data["race"] }}</h1>
+  		<h1 class="class">{{ hero_data["class"] }}</h1>
+  		<h1 class="lvl">{{ hero_data["lvl"] }} уровень</h1>
+  		<h1 class="soul">Cобрано душ: {{ hero_data["souls"] }}</h1>
+  	</div>
+</div>
 
-  <div class="drag-corner" id="info-drag"></div>
+
+<div class="stat-section block-section" id="stat">
+  	<div class="header" id="stat-drag">
+  		<h1>Состояние</h1>
+		<input class="toggle" id="stat-toggle" type="checkbox">
+		<label for="stat-toggle"></input>
+  	</div>
+  	<div class="section">
+  		<div class="hits stat-box">
+			<h1>HP</h1>
+			<h2>{{ hero_data["hits"]["cur"] }}/{{ hero_data["hits"]["max"] }}</h2>
+		</div>
+		<div class="energy stat-box">
+			<h1>EP</h1>
+			<h2>{{ hero_data["energy"]["cur"] }}/{{ hero_data["energy"]["max"] }}</h2>
+		</div>
+		<div class="stamina stat-box">
+			<h1>SP</h1>
+			<h2>{{ hero_data["stamina"]["cur"] }}/{{ hero_data["stamina"]["max"] }}</h2>
+		</div>
+
+		<div class="speed stat-box2">
+			<img src="{{ static('handbook/images/speed.png') }}" alt="speed" />
+			<h2>{{ hero_data["speed"] }}</h2>
+		</div>
+		<div class="spell-speed stat-box2">
+			<img src="{{ static('handbook/images/spell_speed.png') }}" alt="spell_spped" />
+			<h2>{{ hero_data["spell_speed"] }}</h2>
+		</div>
+		<div class="init stat-box2">
+			<img src="" alt="initiative" />
+			<h2>{{ hero_data["initiative"] }}</h2>
+		</div>
+  	</div>
 </div>
 
 {% endblock %}

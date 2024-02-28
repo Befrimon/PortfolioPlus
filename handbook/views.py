@@ -44,10 +44,16 @@ def new_hero(request) -> HttpResponse:
         "uid": str(uuid.uuid4()),
         "name": "Unknown",
         "lvl": 1,
+        "souls": 0,
         "race": "Unknown race",
         "class": "Unknown class",
+
         "hits": {"max": 0, "cur": 0},
-        "energy": {"max": 0, "cur": 0}
+        "energy": {"max": 0, "cur": 0},
+        "stamina": {"max": 0, "cur": 0},
+        "speed": 6,
+        "spell_speed": 0,
+        "initiative": 0
     }
    request.session[hero_data["uid"]] = pickle.dumps(hero_data).hex()
 

@@ -1,15 +1,60 @@
-.context > .info-section {
-	display: grid;
-	grid-template-columns: repeat(12, 2vw);
-	grid-auto-rows: 2vw;
+.context > .block-section {
 	position: absolute;
-
-	left: 1vw; top: 1vh;
-	height: 10vw; width: 24vw;
-
+	
 	background-color: #272b37;
 	border: .1vw solid #5c5c5c;
 	border-radius: .6vw;
+}
+.context > .block-section:hover {
+	z-index: 1;
+}
+.context > .block-section .header {
+	display: flex;
+	height: 2vw; width: 100%;
+}
+.context > .block-section .header h1 {
+	margin: 0;
+	padding: .3vw;
+	width: 21vw;
+	
+	font-size: 1vw;
+}
+ .context > .block-section .header label {
+	padding: .3vw;
+}
+.context > .block-section label:before {  
+	margin-right: .3vw;
+	height: 2vw; width: 2vw;
+  
+	font-weight: bold;
+	content: "-";
+  	font-size: 1vw;
+}
+.toggle:checked ~ label:before {
+	content: "+";
+}
+.toggle {
+	display: none;
+  	visibility: hidden;
+}
+.header:has(.toggle:checked) ~ .section {
+	display: none;
+}
+:is(.info-section, .stat-section):has(.header > .toggle:checked) {
+	height: 2vw;
+}
+
+.context > .info-section {
+	left: 1vw; top: 1vh;
+	height: 12vw; width: 24vw;	
+}
+.context > .info-section .section {
+	display: grid;
+	grid-template-columns: repeat(12, 2vw);
+	grid-auto-rows: 2vw;
+
+	height: 10vw; width: 24vw;
+	border-top: .2vw solid #5c5c5c;
 }
 .context > .info-section img {
 	grid-column-start: 1;
@@ -18,11 +63,7 @@
 	grid-row-end: 5;
 
 	padding: .5vw;
-
 	height: auto; width: 7vw;
-}
-.context > .info-section h1 {
-	font-size: 1vw;
 }
 .context > .info-section .name {
 	grid-column-start: 5; 
@@ -63,6 +104,7 @@
 
 	margin: 0;
 	margin-left: .5vw;
+	font-size: 1vw;
 }
 .context > .info-section .soul {
 	grid-column-start: 7;
@@ -71,16 +113,98 @@
 	grid-row-end: 6;
 
 	margin: 0;
+	font-size: 1vw;
 }
-.context > .info-section .drag-corner {
-	grid-column-start: 10;
-	grid-column-end: 13;
-	grid-row-start: 1;
-	grid-row-end: 2;
-	
-	margin: 0; padding: 0;
-	height: .8vw;
 
-	background-color: #7b5eee;
-	border-radius: 1vw;
+.context > .stat-section {
+	left: 26vw; top: 1vh;
+	height: 12vw; width: 12vw;	
+}
+.context > .stat-section .section {
+	display: grid;
+	grid-template-columns: repeat(6, 2vw);
+	grid-auto-rows: 2vw;
+ 
+	height: 10vw; width: 12vw;
+	border-top: .2vw solid #5c5c5c;
+}
+
+.context > .stat-section .stat-box {
+	margin: .5vw;
+	margin-top: 1vw;
+	border: .1vw solid white;
+	border-radius: .5vw;
+}
+.context > .stat-section .stat-box h1 {
+	position: relative;
+
+	top: -.5vw; left: .65vw;
+	margin: 0;
+	height: auto; width: 1.5vw;
+	background-color: #272b37;
+
+	border-left: .1vw solid white;
+	border-right: .1vw solid white;
+	border-radius: .2vw;
+
+	font-size: .8vw;
+	text-align: center;
+}
+.context > .stat-section .stat-box h2 {
+	position: relative;
+
+	top: -.4vw;
+	margin: 0;
+	height: auto; width: 2.9vw;
+
+	font-size: 1.3vw;
+	text-align: center;
+}
+
+.context > .stat-section .stat-box2 img {
+	padding: .5vw;
+	height: auto; width: 3vw;
+
+	filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(218deg) brightness(102%) contrast(101%);
+}
+.context > .stat-section .stat-box2 h2 {
+	position: relative;
+	
+	margin: 0;
+	width: 4vw;
+	text-align: center;
+}
+
+.context > .stat-section .hits {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+.context > .stat-section .energy {
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+.context > .stat-section .stamina {
+	grid-column-start: 5;
+	grid-column-end: 7;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+
+.context > .stat-section .speed {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 6;	
+} 
+.context > .stat-section .spell-speed {
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 6;
+
+	img { padding: .7vw .5vw; }
 }

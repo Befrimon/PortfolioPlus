@@ -52,3 +52,4 @@ function dragElement(elmnt) {
 }
 
 dragElement(document.getElementById("info"));
+dragElement(document.getElementById("stat"));
