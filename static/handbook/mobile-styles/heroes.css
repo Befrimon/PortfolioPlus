@@ -1,0 +1,90 @@
+.context > h1 {
+	margin: 1vh 6vw;
+	font-size: 6vw;
+}
+
+.context > .table-grid {
+	display: grid;
+	grid-template-columns: 90vw;
+	row-gap: 3vw;
+
+	margin: 0 5vw;
+	width: 90vw;	
+}
+
+.context .new > h1 {
+	margin: 0;
+	width: 90vw;
+	color: #fff;
+	line-height: 15vw;
+	text-decoration: none;
+	text-align: center;
+	font-size: 4vw;
+}
+.context .section {
+	display: flex;
+
+	height: 15vw; width: 90vw;
+
+	background: linear-gradient(rgba(39, 43, 55, 1), rgba(63, 76, 107, .24));
+	border-radius: 1.5vw;
+}
+.context a {
+	text-decoration: none;
+}
+
+.context .section > img {
+	position: relative;
+
+	left: 0; top: 0;
+	height: 15vw; width: 15vw;
+
+	border-radius: .5vw;
+}
+.context .section > h2 {
+	position: relative;
+
+	margin: 0;
+	margin-right: 1vw;
+	left: 1vw; top: 1vw;
+	height: 7vw; width: 65vw;
+
+	color: #fff;
+	line-height: 7vw;
+	text-align: left;
+	font-size: 4vw;
+}
+.context .section > p {
+	position: absolute;
+
+	margin-left: 16vw; margin-top: 8vw;
+	height: 5vw; width: 60vw;
+
+	color: #fff;
+	line-height: 5vw;
+	text-align: left;
+	font-size: 3vw;
+}
+.context .section > .side {
+	position: relative;
+
+	margin: 0;
+	right: 0; top: .5vw;
+	height: 7vw; width: 15vw;
+}
+.context .section > .side > p { 
+	margin: .25vw 1vw;
+	width: 14vw; height: 7vw;
+
+	color: #fff;
+	line-height: 200%;
+	text-align: center;
+	font-size: 2.8vw;
+
+	border-radius: .5vw;
+}
+.context .section > .side > p:last-of-type {
+	color: #00abfa;
+	border-color: #00abfa;
+}
+

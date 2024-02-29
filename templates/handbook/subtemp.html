@@ -8,36 +8,39 @@
   	<link 
   		rel="stylesheet" 
 		type="text/css" 
-		href="{{ static('handbook/styles/style.css') }}" 
+		href="{{ static('handbook/styles/style.css') }}"
+		media="screen and (pointer: fine), (pointer: none)"
 	/>
   	<link 
 		rel="stylesheet" 
 		type="text/css" 
-		href="{{ static('handbook/styles/navigation.css') }}" 
+		href="{{ static('handbook/styles/navigation.css') }}"
+		media="screen and (pointer: fine), (pointer: none)" 
 	/>
   	<link 
 		rel="stylesheet" 
 		type="text/css" 
-		href="{{ static('handbook/styles/'+name+'.css') }}" 
+		href="{{ static('handbook/styles/'+name+'.css') }}"
+		media="screen and (pointer: fine), (pointer: none)" 
 	/>
 
   	<link 
 		rel="stylesheet" 
 		type="text/css" 
 		href="{{ static('handbook/mobile-styles/style.css') }}" 
-		media="screen and (max-width: 600px)" 
+		media="screen and (pointer: coarse)" 
 	/>
   	<link 
 		rel="stylesheet" 
 		type="text/css" 
 		href="{{ static('handbook/mobile-styles/navigation.css') }}" 
-		media="screen and (max-width: 600px)" 
+		media="screen and (pointer: coarse)" 
 	/>
   	<link 
 		rel="stylesheet" 
 		type="text/css" 
 		href="{{ static('handbook/mobile-styles/'+name+'.css') }}" 
-		media="screen and (max-width: 600px)" 
+		media="screen and (pointer: coarse)" 
 	/>
 
   	<link 
@@ -78,7 +81,7 @@
 	<!-- Site sidebar -->
   	<div class="sidebar">
 		<a href="{{ url('handbook:index') }}"><img src="{{ static('handbook/images/logo.svg') }}" alt="logo-btn"></a>
-		<img class="filter-svg" src="{{ static('handbook/images/hamburger.svg') }}" alt="hamburger" onclick="openNav()" />
+		<img class="filter-svg" src="{{ static('handbook/images/hamburger.svg') }}" alt="hamburger" onclick="hamburger()" />
   	</div>
 
   	<!-- Overlay and navigation -->
@@ -114,24 +117,7 @@
 		{% block context %}{% endblock %}
   	</div>
 
-  	<script type="text/javascript">
-		function openNav() 
-		{
-	  		document.getElementById("overlay").style.opacity = ".75";
-	  		document.getElementById("overlay").style.visibility = "visible";
-
-	  		document.getElementById("navigation").style.left = "6vw";
-	  		document.getElementById("navigation").style.visibility = "visible";
-		}
-		function closeNav() 
-		{
-	  		document.getElementById("overlay").style.opacity = "0";
-	  		document.getElementById("overlay").style.visibility = "hidden";
-
-	  		document.getElementById("navigation").style.left = "-50vw";
-	  		document.getElementById("navigation").style.visibility = "hidden";
-		}
-  	</script>
+  	<script type="text/javascript" src="{{ static('handbook/scripts/navigation.js') }}"></script>
   	{% block jscript %}{% endblock %}
 </body>
 </html>

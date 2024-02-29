@@ -1,0 +1,37 @@
+.context > h1 {
+	margin: 1vh 6vw;
+	font-size: 6vw;
+}
+
+.context > .table-grid {
+	display: grid;
+	grid-template-columns: 90vw;
+	row-gap: 3vw;
+
+	margin: 0 5vw;
+	width: 90vw;
+}
+.context > .table-grid .elem a {
+	display: block;
+
+	height: calc(90vw * (37 / 77)); width: 90vw;
+
+	font-size: 6vw;
+	text-decoration: none;
+	color: #fff;
+}
+.context > .table-grid .elem p {
+	position: relative;
+
+	top: -25vw; left: 6%;
+}
+.context > .table-grid .elem p:last-of-type {
+	position: relative;
+
+	font-size: 5vw;
+	color: #aaa;
+	top: -30vw; left: 6.5%;
+}
+.context > .table-grid .elem a, .table-grid .elem img {
+	width: 100%;
+} 

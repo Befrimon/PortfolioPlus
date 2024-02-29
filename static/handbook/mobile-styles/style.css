@@ -1,3 +1,24 @@
+::-webkit-scrollbar {
+	width: .3vw;
+  	height: .3vw;
+}
+::-webkit-scrollbar-track {
+	background: #1e222b;
+}
+::-webkit-scrollbar-thumb {
+	background: #2e235f;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #4c34af;
+}
+
+body {
+	margin: 0 0;
+	background-color: #1e222b;
+	color: #fff;
+	font-family: "Rubik";
+}
+
 .background {
 	display: none;
 }
@@ -5,27 +26,30 @@
 .sidebar {
 	position: fixed;
 
-	height: 10vw; width: 100vw;
+	height: 5vh; width: 100vw;
 	z-index: 1;
 
 	border-bottom: .2vw solid #5c5c5c;
 	background-color: #1e222b; 
 }
 .sidebar img {
-	margin: .5vw;
+	margin: .5vh;
+	margin-left: 2vw;
 	height: 80%; width: auto;
 }
 .sidebar .filter-svg {
 	position: absolute;
 
-	right: .5vw;
-	margin: .5vw;
+	right: 2vw;
+	margin: .5vh;
 	height: 80%; width: auto;
+
+	filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(265deg) brightness(102%) contrast(104%);
 }
 
 .context {
 	position: absolute;
 
-	left: 0; top: 7vw;
+	left: 0; top: 5vh;
 	height: auto; width: 100vw;
 }
