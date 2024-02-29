@@ -1,0 +1,15 @@
+.overlay {
+	display: none;
+}
+.navigation {
+	display: fixed;
+
+	height: 100vh; width: 100vw;
+
+	background-color: #1e222b;
+
+	z-index: 2;
+	visibility: hidden;
+	transition: .5s;
+}
+
