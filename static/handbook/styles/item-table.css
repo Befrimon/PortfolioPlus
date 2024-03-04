@@ -39,6 +39,9 @@
 	text-align: left;
 	border-bottom: .15vw solid #fff;
 }
+.context > table .hide {
+	display: none;
+}
 .context > table td {
 	font-size: 1vw;
 	border-bottom: .1vw solid #fff;

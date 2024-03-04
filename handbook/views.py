@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import GameRace, GameWeaponNew, GameArmorNew
+from .models import Race, Weapon, Armor
 import pickle
 import uuid
 
@@ -61,7 +61,7 @@ def new_hero(request) -> HttpResponse:
 
 
 def races(request) -> HttpResponse:
-    all_races = GameRace.objects.all()
+    all_races = Race.objects.all()
     variables = {
         "name": "races",
         "title": "Races",
@@ -74,7 +74,7 @@ def races(request) -> HttpResponse:
 
 
 def race_page(request, name_eng: str) -> HttpResponse:
-    cur_race = GameRace.objects.get(name_eng=name_eng)
+    cur_race = Race.objects.get(name_eng=name_eng)
     variables = {
         "name": "race-page",
         "title": name_eng,
@@ -86,7 +86,7 @@ def race_page(request, name_eng: str) -> HttpResponse:
 
 
 def weapons(request) -> HttpResponse:
-    all_weapons = GameWeaponNew.objects.all()
+    all_weapons = Weapon.objects.all()
     variables = {
         "name": "item-table",
         "title": "Weapons",
@@ -107,7 +107,7 @@ def weapons(request) -> HttpResponse:
 
 
 def armors(request) -> HttpResponse:
-    all_armors = GameArmorNew.objects.all()
+    all_armors = Armor.objects.all()
     variables = {
         "name": "item-table",
         "title": "Armors",

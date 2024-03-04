@@ -26,48 +26,43 @@
 }
 
 .context > table {
-	display: none
-}
-
-/*
- * Desktop version here
-.context > table {
 	position: relative;
 
-	margin: 0 2.5vw;
+	margin: 0 5vw;
 	height: auto; width: 90vw;
 
 	border-collapse: collapse;
 }
-.context > table th {
-	font-size: 1.5vw;
-	text-align: left;
-	border-bottom: .15vw solid #fff;
+.context > table thead {
+	display: none;
 }
-.context > table td {
-	font-size: 1vw;
+.context > table tr {
+	display: grid;
+	grid-template-columns: 40% 60%;
+
+	margin-bottom: .5vw;
+	border: .2vw solid #fff;
+}
+.context > table .hide {
+	margin-left: 1vw;
+
+	font-size: 4vw;
+	text-align: left;
 	border-bottom: .1vw solid #fff;
 }
-.context > table th, .context > table td {
-	margin: 0;
-	height: 2.5vw; width: auto;
-}
-.context > table th > img {
-	position: relative;
+.context > table td {
+	margin-right: 1vw;
+	padding: .9vw 0;
 
-	left: .5vw; top: 0;
-	height: 1.2vw; width: auto;
-	filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(218deg) brightness(102%) contrast(101%);
+	font-size: 3vw;
+	border-bottom: .1vw solid #fff;
+}
+.context > table tr {
+	td:last-of-type, .hide:last-of-type{
+		border: none;
+	}
+}
 
-	visibility: hidden;
-}
-.context > table th:hover {
-	background-color: rgba(120, 90, 145, .5); 
-}
-.context > table th:hover > img{
-	visibility: visible;
-}
 .context > table tr:nth-child(even) {
 	background-color: rgba(120, 90, 145, .5);
 }
-*/

@@ -46,7 +46,7 @@ class RaceSkill(models.Model):
         abstract = True
 
 
-class GameRace(models.Model):
+class Race(models.Model):
     _id = models.ObjectIdField()
 
     name_rus = models.TextField()
@@ -69,7 +69,7 @@ class GameRace(models.Model):
         return self.name_eng
 
 
-class GameWeaponNew(models.Model):
+class Weapon(models.Model):
     _id = models.ObjectIdField()
     name = models.TextField()
 
@@ -82,7 +82,7 @@ class GameWeaponNew(models.Model):
     group = models.TextField()
 
 
-class GameArmorNew(models.Model):
+class Armor(models.Model):
     _id = models.ObjectIdField()
     name = models.TextField()
 

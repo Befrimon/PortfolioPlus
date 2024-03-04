@@ -9,22 +9,23 @@
 <table id="itemTable">
 <thead>
   <tr>
-	{% for title in columns %} 	
+	{% for tit in columns %} 	
 	  <th onclick="sortTable({{ loop.index0 }})">
-		{{ title }} 
+		{{ tit }} 
 		<img src="{{ static('handbook/images/sort0.svg') }}" />
 	  </th>
 	{% endfor %}
   </tr>
 </thead>
 <tbody>
-  {% for item in fill %}
-	<tr>
-	  {% for cell in item %}
-		<td>{{ cell }}</td>
-	  {% endfor %}
-	</tr>
-  {% endfor %}
+	{% for item in fill %}
+		<tr>
+		{% for cell in item %}
+			<th class="hide">{{ columns[loop.index0] }}</th>
+	  		<td>{% if cell == "" %}-{% else %}{{ cell }}{% endif %}</td>
+	  	{% endfor %}
+		</tr>
+  	{% endfor %}
 </tbody>
 </table>
 
